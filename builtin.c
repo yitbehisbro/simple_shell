@@ -1,5 +1,14 @@
 #include "main.h"
 
+/*
+  List of builtin commands, followed by their corresponding functions.
+ */
+char *builtin_str[] = {
+  "cd",
+  "help",
+  "exit"
+};
+
 int lsh_num_builtins() {
   return sizeof(builtin_str) / sizeof(char *);
 }
