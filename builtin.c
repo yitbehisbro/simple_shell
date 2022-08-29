@@ -42,8 +42,8 @@ int lsh_cd(char **args)
 int lsh_help(char __attribute__((unused)) **args)
 {
   int i;
-  printf("Stephen Brennan's LSH\n");
-  printf("Type program names and arguments, and hit enter.\n");
+  printf("Group Project for ALX Software Engineering\n");
+  printf("Type a program names and arguments, and hit ENTER.\n");
   printf("The following are built in:\n");
 
   for (i = 0; i < lsh_num_builtins(); i++) {
