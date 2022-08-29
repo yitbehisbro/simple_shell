@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
    @brief Execute shell built-in or launch program.
    @param args Null terminated list of arguments.
