@@ -26,6 +26,6 @@ int lsh_launch(char **args)
       waitpid(pid, &status, WUNTRACED);
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));
   }
-
-  return 1;
+  printf("\n");
+  return (1);
 }
