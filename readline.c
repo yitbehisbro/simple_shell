@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
    @brief Read a line of input from stdin.
    @return The line from stdin.
