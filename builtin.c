@@ -3,14 +3,14 @@
 /*
   List of builtin commands, followed by their corresponding functions.
  */
-char *builtin_str[] = {
+char *builtin_str1[] = {
   "cd",
   "help",
   "exit"
 };
 
 int lsh_num_builtins() {
-  return sizeof(builtin_str) / sizeof(char *);
+  return sizeof(builtin_str1) / sizeof(char *);
 }
 
 /*
@@ -47,7 +47,7 @@ int lsh_help(char __attribute__((unused)) **args)
   printf("The following are built in:\n");
 
   for (i = 0; i < lsh_num_builtins(); i++) {
-    printf("  %s\n", builtin_str[i]);
+    printf("  %s\n", builtin_str1[i]);
   }
 
   printf("Use the man command for information on other programs.\n");
