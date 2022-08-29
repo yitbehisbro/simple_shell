@@ -19,4 +19,5 @@ void lsh_loop(void)
 		free(line);
 		free(args);
 	} while (status);
+	printf("\n");
 }
