@@ -6,7 +6,7 @@
    @param argv Argument vector.
    @return status code
  */
-int main(int argc, char **argv)
+int main(int __attribute__((unused)) argc, char __attribute__((unused)) **argv)
 {
   // Load config files, if any.
 
