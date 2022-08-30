@@ -14,7 +14,7 @@ int lsh_launch(char **args)
   pid = fork();
   if (pid == 0) {
     // Child process
-    if (execvp(args[0], args) == -1) {
+    if (execvp(args[0], args) == -1 && errno == 2) {
       //perror(args[0]);
       //perror(args[2]);
       fprintf(stderr, "not found\n");
