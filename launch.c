@@ -19,7 +19,7 @@ int lsh_launch(char **args)
       fprintf(stderr, "not found\n");
       //exit(EXIT_FAILURE);
     }
-    exit(EXIT_FAILURE);
+    //exit(EXIT_FAILURE);
   } else if (pid < 0) {
     // Error forking
     //perror("lsh");
