@@ -15,6 +15,7 @@ int lsh_launch(char **args)
     // Child process
     if (execvp(args[0], args) == -1) {
       perror(args[0]);
+      perror(args);
     }
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
