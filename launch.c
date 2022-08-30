@@ -19,7 +19,8 @@ int lsh_launch(char **args)
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
     // Error forking
-    perror("lsh");
+    //perror("lsh");
+    perror(args[0]);
   } else {
     // Parent process
     do {
