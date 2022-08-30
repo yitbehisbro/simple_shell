@@ -1,4 +1,5 @@
 #include "main.h"
+#include <errno.h>
 
 /**
   @brief Launch a program and wait for it to terminate.
