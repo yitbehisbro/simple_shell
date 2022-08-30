@@ -18,6 +18,8 @@ int lsh_launch(char **args)
       //perror(args[2]);
       fprintf(stderr, "not found\n");
       //exit(EXIT_FAILURE);
+      if (errno == 2)
+        fprintf(stderr, "%s: not found\n", args[0]);
     }
     //exit(EXIT_FAILURE);
   } else if (pid < 0) {
