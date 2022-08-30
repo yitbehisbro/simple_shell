@@ -17,7 +17,7 @@ int lsh_launch(char **args)
       //perror(args[0]);
       //perror(args[2]);
       fprintf(stderr, "not found\n");
-      exit(EXIT_FAILURE);
+      //exit(EXIT_FAILURE);
     }
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
