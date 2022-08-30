@@ -24,6 +24,7 @@ int lsh_launch(char **args)
     // Error forking
     //perror("lsh");
     perror(args[0]);
+    fprintf(stderr, "not found\n");
   } else {
     // Parent process
     do {
