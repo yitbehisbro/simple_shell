@@ -23,7 +23,7 @@ int lsh_launch(char **args)
   } else if (pid < 0) {
     // Error forking
     //perror("lsh");
-    perror(args[0]);
+    //perror(args[0]);
     fprintf(stderr, "not found\n");
   } else {
     // Parent process
