@@ -51,7 +51,7 @@ int hsh_help(char __attribute__((unused)) **args)
 	printf("Type a program names and arguments, and hit ENTER.\n");
 	printf("The following are built in:\n");
 
-	for (i = 0; i < lsh_num_builtins(); i++)
+	for (i = 0; i < hsh_num_builtins(); i++)
 	{
 		printf("  %s\n", builtin_str1[i]);
 	}
@@ -67,5 +67,5 @@ int hsh_help(char __attribute__((unused)) **args)
  */
 int hsh_exit(char __attribute__((unused)) **args)
 {
-	return 0;
+	return (0);
 }
