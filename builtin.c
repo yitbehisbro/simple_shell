@@ -4,7 +4,7 @@
  * List of builtin commands, followed by their
  * corresponding functions.
  */
-char *builtin_str1[] = {"cd", "help", "exit", NULL};
+char *builtin_str1[] = {"cd", "help", "exit"};
 
 /**
  * hsh_num_builtins - evaluate the size of bultins
