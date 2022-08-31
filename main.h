@@ -20,6 +20,6 @@ int hsh_exit(char **args);
 int hsh_help(char **args);
 int hsh_cd(char **args);
 int hsh_num_builtins(void);
-void hsh_clear(char **args);
+int hsh_clear(char **args);
 
 #endif
