@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include<conio.h>
 
 void hsh_loop(void);
 char **split_line(char *line);
