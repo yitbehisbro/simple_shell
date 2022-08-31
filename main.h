@@ -12,8 +12,8 @@
 #include <string.h>
 
 void hsh_loop(void);
-char **hsh_split_line(char *line);
-char *hsh_read_line(void);
+char **split_line(char *line);
+char *read_line(void);
 int hsh_execute(char **args);
 int hsh_launch(char **args);
 int hsh_exit(char **args);
