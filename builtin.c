@@ -77,7 +77,7 @@ int hsh_exit(char __attribute__((unused)) **args)
  */
 int hsh_clear(char __attribute__((unused)) **args)
 {
-	char **str = "./hsh";
+	char *str[] = {"./hsh", NULL};
 
 	system("clear");
 	return (hsh_launch(str));
