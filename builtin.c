@@ -1,16 +1,19 @@
 #include "main.h"
 
-/*
-  List of builtin commands, followed by their corresponding functions.
+/**
+ * List of builtin commands, followed by their
+ * corresponding functions.
  */
-char *builtin_str1[] = {
-  "cd",
-  "help",
-  "exit"
-};
+char *builtin_str1[] = {"cd", "help", "exit", NULL};
 
-int lsh_num_builtins() {
-  return sizeof(builtin_str1) / sizeof(char *);
+/**
+ * hsh_num_builtins - evaluate the size of bultins
+ *
+ * Return: size of the bultins
+ */
+int hsh_num_builtins(void)
+{
+	return (sizeof(builtin_str1) / sizeof(char *));
 }
 
 /*
