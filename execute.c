@@ -4,8 +4,8 @@
  * List of builtin commands, followed by
  * their corresponding functions.
  */
-char *builtin_str[] = {"cd", "help", "exit"};
-int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit};
+char *builtin_str[] = {"cd", "help", "exit", "clear"};
+int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
 
 /**
  * hsh_execute - execute built-in command or launch program
