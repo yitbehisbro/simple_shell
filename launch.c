@@ -1,7 +1,5 @@
 #include "main.h"
 
-extern char **environ;
-
 /**
  * hsh_launch - launchs a program
  * @args: NULL terminated list of arguments
@@ -16,7 +14,7 @@ int hsh_launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvpe(args[0], args, NULL) == -1)
+		if (execvp(args[0], args) == -1)
 		{
 			fprintf(stderr, "%s: not found\n", args[0]);
 		}
