@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
-   @brief Loop getting input and executing it.
+ * hsh_loop - read input until exit
+ *
+ * Return: void no return
  */
-void lsh_loop(void)
+void hsh_loop(void)
 {
 	char *line;
 	char **args;
@@ -12,9 +14,9 @@ void lsh_loop(void)
 	do
 	{
 		printf("$ ");
-		line = lsh_read_line();
-		args = lsh_split_line(line);
-		status = lsh_execute(args);
+		line = read_line();
+		args = split_line(line);
+		status = hsh_execute(args);
 
 		free(line);
 		free(args);
