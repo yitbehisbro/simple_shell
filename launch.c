@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
  * hsh_launch - launchs a program
@@ -14,7 +15,7 @@ int hsh_launch(char **args)
   pid = fork();
   if (pid == 0) {
     // Child process
-    if (execvp(args[0], args) == -1) {
+    if (execve(args[0], args) == -1) {
       //perror(args[0]);
       //perror(args[2]);
       fprintf(stderr, "not found\n");
