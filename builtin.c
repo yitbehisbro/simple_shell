@@ -80,5 +80,5 @@ int hsh_clear(char __attribute__((unused)) **args)
 	char *str[] = {"./hsh", NULL};
 
 	system("clear");
-	return (hsh_loop());
+	return (hsh_launch(str));
 }
