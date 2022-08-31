@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define clear() printf(“\033[H\033[J”)
+
 /**
  * List of builtin commands, followed by their
  * corresponding functions.
@@ -77,5 +79,5 @@ int hsh_exit(char __attribute__((unused)) **args)
  */
 int hsh_clear(char __attribute__((unused)) **args)
 {
-	return (clrscr());
+	return (clear());
 }
