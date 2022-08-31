@@ -1,5 +1,7 @@
 #include "main.h"
 
+extern char **environ;
+
 /**
  * hsh_launch - launchs a program
  * @args: NULL terminated list of arguments
