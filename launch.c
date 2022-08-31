@@ -1,38 +1,36 @@
 #include "main.h"
-#include <errno.h>
 
 /**
-  @brief Launch a program and wait for it to terminate.
-  @param args Null terminated list of arguments (including program).
-  @return Always returns 1, to continue execution.
+ * hsh_launch - launchs a program
+ * @args: NULL terminated list of arguments
+ *
+ * Return: Always returns 1
  */
-int lsh_launch(char **args)
+int hsh_launch(char **args)
 {
-  pid_t pid;
-  int status;
+	pid_t pid;
+	int status;
 
-  pid = fork();
-  if (pid == 0) {
-    // Child process
-    if (execvp(args[0], args) == -1 && errno == 2) {
-      //perror(args[0]);
-      //perror(args[2]);
-      fprintf(stderr, "not found\n");
-      //exit(EXIT_FAILURE);
-      if (errno == 2)
-        fprintf(stderr, "%s: not found\n", args[0]);
-    }
-    //exit(EXIT_FAILURE);
-  } else if (pid < 0) {
-    // Error forking
-    //perror("lsh");
-    //perror(args[0]);
-    fprintf(stderr, "not found\n");
-  } else {
-    // Parent process
-    do {
-      waitpid(pid, &status, WUNTRACED);
-    } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-  }
-  return (1);
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execvp(args[0], args) == -1)
+		{
+			fprintf(stderr, "not found\n");
+			exit(EXIT_FAILURE);
+		}
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		fprintf(stderr, "not found\n");
+	}
+	else
+	{
+		do
+		{
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
+	return (1);
 }
