@@ -14,7 +14,7 @@
    @param line The line.
    @return Null-terminated array of tokens.
  */
-char **lsh_split_line(char *line)
+char **split_line(char *line)
 {
   int bufsize = LSH_TOK_BUFSIZE, position = 0;
   char **tokens = malloc(bufsize * sizeof(char*));
