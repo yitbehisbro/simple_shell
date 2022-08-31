@@ -39,31 +39,33 @@ int hsh_cd(char **args)
 }
 
 /**
-   @brief Builtin command: print help.
-   @param args List of args.  Not examined.
-   @return Always returns 1, to continue executing.
+ * hsh_help - print help.
+ * @args: list of args.
+ *
+ * Return: Always 1
  */
-int lsh_help(char __attribute__((unused)) **args)
+int hsh_help(char __attribute__((unused)) **args)
 {
-  int i;
-  printf("Group Project for ALX Software Engineering\n");
-  printf("Type a program names and arguments, and hit ENTER.\n");
-  printf("The following are built in:\n");
+	int i;
+	printf("Group Project for ALX Software Engineering\n");
+	printf("Type a program names and arguments, and hit ENTER.\n");
+	printf("The following are built in:\n");
 
-  for (i = 0; i < lsh_num_builtins(); i++) {
-    printf("  %s\n", builtin_str1[i]);
-  }
-
-  printf("Use the man command for information on other programs.\n");
-  return 1;
+	for (i = 0; i < lsh_num_builtins(); i++)
+	{
+		printf("  %s\n", builtin_str1[i]);
+	}
+	printf("Use the man command for information on other programs.\n");
+	return (1);
 }
 
 /**
-   @brief Builtin command: exit.
-   @param args List of args.  Not examined.
-   @return Always returns 0, to terminate execution.
+ * hsh_exit - exit the execusion
+ * @args: list of args
+ *
+ * Return: Always returns 0
  */
-int lsh_exit(char __attribute__((unused)) **args)
+int hsh_exit(char __attribute__((unused)) **args)
 {
-  return 0;
+	return 0;
 }
