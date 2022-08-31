@@ -16,7 +16,7 @@ int hsh_launch(char **args)
 	{
 		if (execve(args[0], args, NULL) == -1)
 		{
-			fprintf(stderr, "not found\n");
+			fprintf(stderr, "%s: not found\n", args[0]);
 		}
 		exit(EXIT_FAILURE);
 	}
