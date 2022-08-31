@@ -75,7 +75,7 @@ int hsh_exit(char __attribute__((unused)) **args)
  *
  * Return: Always returns 0
  */
-void hsh_clear(char __attribute__((unused)) **args)
+int hsh_clear(char __attribute__((unused)) **args)
 {
 	system("clear");
 }
