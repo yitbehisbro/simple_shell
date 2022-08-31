@@ -11,14 +11,14 @@
 #include <stdio.h>
 #include <string.h>
 
-void lsh_loop(void);
-char **lsh_split_line(char *line);
-char *lsh_read_line(void);
-int lsh_execute(char **args);
-int lsh_launch(char **args);
-int lsh_exit(char **args);
-int lsh_help(char **args);
-int lsh_cd(char **args);
-int lsh_num_builtins(void);
+void hsh_loop(void);
+char **hsh_split_line(char *line);
+char *hsh_read_line(void);
+int hsh_execute(char **args);
+int hsh_launch(char **args);
+int hsh_exit(char **args);
+int hsh_help(char **args);
+int hsh_cd(char **args);
+int hsh_num_builtins(void);
 
 #endif
