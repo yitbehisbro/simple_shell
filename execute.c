@@ -4,7 +4,7 @@
  * List of builtin commands, followed by
  * their corresponding functions.
  */
-char *builtin_str[] = {"cd", "help", "exit", NULL};
+char *builtin_str[] = {"cd", "help", "exit"};
 int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit};
 
 /**
