@@ -1,39 +1,33 @@
 #include "main.h"
 
-/*
-  List of builtin commands, followed by their corresponding functions.
+/**
+ * List of builtin commands, followed by
+ * their corresponding functions.
  */
-char *builtin_str[] = {
-  "cd",
-  "help",
-  "exit"
-};
-
-int (*builtin_func[]) (char **) = {
-  &lsh_cd,
-  &lsh_help,
-  &lsh_exit
-};
+char *builtin_str[] = {"cd", "help", "exit", NULL};
+int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit};
 
 /**
-   @brief Execute shell built-in or launch program.
-   @param args Null terminated list of arguments.
-   @return 1 if the shell should continue running, 0 if it should terminate
+ * hsh_execute - execute built-in command or launch program
+ * @args: NULL terminated list of arguments
+ *
+ * Return: 1 if the shell should continue running,
+ * 0 if it should terminate
  */
-int lsh_execute(char **args)
+int hsh_execute(char **args)
 {
-  int i;
+	int i;
 
-  if (args[0] == NULL) {
-    // An empty command was entered.
-    return 1;
-  }
-
-  for (i = 0; i < lsh_num_builtins(); i++) {
-    if (strcmp(args[0], builtin_str[i]) == 0) {
-      return (*builtin_func[i])(args);
-    }
-  }
-
-  return lsh_launch(args);
+	if (args[0] == NULL)
+	{
+		return (1);
+	}
+	for (i = 0; i < lsh_num_builtins(); i++)
+	{
+		if (strcmp(args[0], builtin_str[i]) == 0)
+		{
+			return (*builtin_func[i])(args);
+		}
+	}
+	return (hsh_launch(args));
 }
