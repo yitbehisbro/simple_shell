@@ -14,7 +14,7 @@ int hsh_launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, NULL) < 0)
 		{
 			fprintf(stderr, "%s: not found\n", args[0]);
 		}
