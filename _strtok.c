@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * is_delim - check if delimitor
+ * is_delim - checks if delimitor
  * @str: string to be checked
  * @delim: delimitor
  *
