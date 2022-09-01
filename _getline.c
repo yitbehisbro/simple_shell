@@ -19,7 +19,7 @@ char *_strchr(char *s, char c)
 }
 
 /**
- * _strlen - prints the string length
+ * _strlen - prints the length of string
  * @s: variable that holds string values
  *
  * Return: the length of the given string
