@@ -21,5 +21,7 @@ int hsh_help(char **args);
 int hsh_cd(char **args);
 int hsh_num_builtins(void);
 int hsh_clear(char **args);
+char *_strtok(char *str, char *delim);
+unsigned int is_delim(char str, char *delim);
 
 #endif
