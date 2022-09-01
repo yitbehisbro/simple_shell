@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * is_delim - check if delimitor
@@ -70,23 +70,4 @@ char *_strtok(char *str, char *delim)
 		}
 		str++;
 	}
-}
-
-/**
- * main - entry point
- *
- * Return: alawys 0
- */
-int main(void)
-{
-	char s[] = "HI MyName;is Java who uses; andagain; semicolon;";
-	char *delim = " ;";
-	char *token = _strtok(s, delim);
-
-	while (token)
-	{
-		printf("%s\n", token);
-		token = _strtok(NULL, delim);
-	}
-	return (0);
 }
