@@ -21,8 +21,8 @@ unsigned int is_delim(char str, char *delim)
 /**
  * _strtok - breaks a string into a sequence of
  * zero or more nonempty tokens
- * @s: pointer to string to be break
- * @d: argument specifies a set of bytes
+ * @str: pointer to string to be break
+ * @delim: argument specifies a set of bytes
  * that delimit the tokens in the parsed string
  *
  * Return: pointer to the next token,
@@ -33,31 +33,31 @@ char *_strtok(char *str, char *delim)
 	char *result = NULL;
 	static char *backup_string;
 
-	if(!str)
+	if (!str)
 	{
 		str = backup_string;
 	}
-	if(!str)
+	if (!str)
 	{
 		return (NULL);
 	}
-	while(1)
+	while (1)
 	{
-		if(is_delim(*str, delim))
+		if (is_delim(*str, delim))
 		{
 			str++;
 			continue;
 		}
-		if(*str == '\0')
+		if (*str == '\0')
 		{
 			return (NULL);
 		}
 		break;
 	}
 	result = str;
-	while(1)
+	while (1)
 	{
-		if(*str == '\0')
+		if (*str == '\0')
 		{
 			backup_string = str;
 			return (result);
