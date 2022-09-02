@@ -27,9 +27,8 @@ char *read_line(void)
 	return (line);
 	#else
 	#define BUFSIZE 1024
-	int bufsize = BUFSIZE;
+	int c, position = 0, bufsize = BUFSIZE;
 	char *buffer = malloc(sizeof(char) * bufsize);
-	int c;
 
 	if (!buffer)
 	{
@@ -39,37 +38,34 @@ char *read_line(void)
 	while (1)
 	{
 		c = getchar();
-		read_loop(c, buffer, bufsize);
+		if (c == EOF)
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else if (c == '\n')
+		{
+			buffer[position] = '\0';
+			return (buffer);
+		}
+		else
+		{
+			buffer[position] = c;
+		}
+		position++;
+		read_loop(buffer, bufsize);
 	}
 	#endif
 }
 
 /**
  * read_loop - helper function
- * @c: character
  * @buffer: line of string
  * @bufsize: size of the buffer
  *
  * Return: no return
  */
-void read_loop(int c, char *buffer, int bufsize)
+void read_loop(char *buffer, int bufsize)
 {
-	int position = 0;
-
-	if (c == EOF)
-	{
-		exit(EXIT_SUCCESS);
-	}
-	else if (c == '\n')
-	{
-		buffer[position] = '\0';
-		return (buffer);
-	}
-	else
-	{
-		buffer[position] = c;
-	}
-	position++;
 	if (position >= bufsize)
 	{
 		bufsize += BUFSIZE;
