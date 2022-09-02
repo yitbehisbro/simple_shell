@@ -38,7 +38,7 @@ char *read_line(void)
 	while (1)
 	{
 		c = getchar();
-		read_loop(buffer, bufsize, position, c);
+		read_loop(&buffer, bufsize, position, c);
 	}
 	#endif
 }
@@ -50,7 +50,7 @@ char *read_line(void)
  *
  * Return: buffer
  */
-char *read_loop(char *buffer, int bufsize, int position, int c)
+char read_loop(char *buffer, int bufsize, int position, int c)
 {
 	if (c == EOF)
 	{
