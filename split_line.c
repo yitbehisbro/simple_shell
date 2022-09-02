@@ -9,7 +9,7 @@
 char **split_line(char *line)
 {
 	int bufsize = LSH_TOK_BUFSIZE, position = 0;
-	char **tokens = malloc(bufsize * sizeof(char*));
+	char **tokens = malloc(bufsize * sizeof(char *));
 	char *token, **tokens_backup;
 
 	if (!tokens)
@@ -27,7 +27,7 @@ char **split_line(char *line)
 		{
 			bufsize += LSH_TOK_BUFSIZE;
 			tokens_backup = tokens;
-			tokens = realloc(tokens, bufsize * sizeof(char*));
+			tokens = realloc(tokens, bufsize * sizeof(char *));
 			if (!tokens)
 			{
 				free(tokens_backup);
