@@ -62,6 +62,7 @@ char *_strcpy(char *dest, char *src)
 /**
  * _getline - reads an entire line from stream
  * @lineptr: pointer to the line
+ * @stream: files to be read
  * @n: size of buffer
  *
  * Return: the number of characters read,
