@@ -2,6 +2,10 @@
 
 /**
  * builtin_func - catch in array built-in command
+ * @hsh_cd: for change directory
+ * @hsh_help: help
+ * @hsh_exit: exit from shell
+ * @hsh_clear: clear console screen
  *
  * Return: always 0
  */
