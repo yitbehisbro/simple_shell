@@ -9,13 +9,13 @@
  */
 unsigned int is_delim(char str, char *delim)
 {
-    while (*delim != '\0')
-    {
-        if (str == *delim)
-            return (1);
-        delim++;
-    }
-    return (0);
+	while (*delim != '\0')
+	{
+		if (str == *delim)
+			return (1);
+		delim++;
+	}
+	return (0);
 }
 
 /**
