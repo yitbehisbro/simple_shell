@@ -47,11 +47,6 @@ char *read_line(void)
 			buffer[position] = '\0';
 			return (buffer);
 		}
-		else
-		{
-			buffer[position] = c;
-		}
-		position++;
 		read_loop(buffer, bufsize, position);
 	}
 	#endif
@@ -66,6 +61,12 @@ char *read_line(void)
  */
 void read_loop(char *buffer, int bufsize, int position)
 {
+	else
+	{
+		buffer[position] = c;
+	}
+	position++;
+
 	if (position >= bufsize)
 	{
 		bufsize += BUFSIZE;
