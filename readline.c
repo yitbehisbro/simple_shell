@@ -50,7 +50,7 @@ char *read_line(void)
  *
  * Return: buffer
  */
-char *read_loop(char buffer, int bufsize, int position, int c)
+char *read_loop(char *buffer, int bufsize, int position, int c)
 {
 	if (c == EOF)
 	{
