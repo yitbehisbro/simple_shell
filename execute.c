@@ -1,11 +1,7 @@
 #include "main.h"
 
 /**
- * builtin_func - catch in array built-in command
- * @hsh_cd: for change directory
- * @hsh_help: help
- * @hsh_exit: exit from shell
- * @hsh_clear: clear console screen
+ * @builtin_func: catch in array built-in command
  *
  * Return: always 0
  */
