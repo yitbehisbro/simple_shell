@@ -2,7 +2,7 @@
 
 /**
  * split_line - split a line into tokens
- * line: line to read
+ * @line: line to read
  *
  * Return: Null-terminated array of tokens
  */
