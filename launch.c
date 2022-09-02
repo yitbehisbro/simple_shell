@@ -26,8 +26,7 @@ int hsh_launch(char **args)
 	}
 	else
 	{
-		do
-		{
+		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
