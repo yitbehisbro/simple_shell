@@ -1,13 +1,6 @@
 #include "main.h"
 
 /**
- * @builtin_func: catch in array built-in command
- *
- * Return: always 0
- */
-int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
-
-/**
  * hsh_execute - execute built-in command or launch program
  * @args: NULL terminated list of arguments
  *
@@ -17,6 +10,7 @@ int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
 int hsh_execute(char **args)
 {
 	int i;
+	int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
 	char *builtin_str[] = {"cd", "help", "exit", "clear"};
 
 	if (args[0] == NULL)
