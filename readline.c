@@ -26,7 +26,7 @@ char *read_line(void)
 	}
 	return (line);
 	#else
-	read_loop();
+	return (read_loop());
 }
 
 /**
