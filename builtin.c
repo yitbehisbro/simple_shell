@@ -1,18 +1,14 @@
 #include "main.h"
 
 /**
- * List of builtin commands, followed by their
- * corresponding functions.
- */
-char *builtin_str1[] = {"cd", "help", "exit", "clear"};
-
-/**
  * hsh_num_builtins - evaluate the size of bultins
  *
  * Return: size of the bultins
  */
 int hsh_num_builtins(void)
 {
+	char *builtin_str1[] = {"cd", "help", "exit", "clear"};
+
 	return (sizeof(builtin_str1) / sizeof(char *));
 }
 
@@ -46,7 +42,9 @@ int hsh_cd(char **args)
  */
 int hsh_help(char __attribute__((unused)) **args)
 {
+	char *builtin_str1[] = {"cd", "help", "exit", "clear"};
 	int i;
+
 	printf("Group Project for ALX Software Engineering\n");
 	printf("Type a program names and arguments, and hit ENTER.\n");
 	printf("The following are built in:\n");
