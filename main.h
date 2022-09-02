@@ -30,6 +30,6 @@ char *_strchr(char *s, char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-void read_loop(int c, char *buffer, int bufsize);
+char *read_loop(char buffer, int bufsize, int position, int c);
 
 #endif
