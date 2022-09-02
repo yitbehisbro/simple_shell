@@ -26,9 +26,8 @@ char *read_line(void)
 	}
 	return (line);
 	#else
-	#define LSH_RL_BUFSIZE 1024
-	int bufsize = LSH_RL_BUFSIZE;
-	int position = 0;
+	#define BUFSIZE 1024
+	int bufsize = BUFSIZE;
 	char *buffer = malloc(sizeof(char) * bufsize);
 	int c;
 
@@ -40,30 +39,45 @@ char *read_line(void)
 	while (1)
 	{
 		c = getchar();
-		if (c == EOF)
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else if (c == '\n')
-		{
-			buffer[position] = '\0';
-			return (buffer);
-		}
-		else
-		{
-			buffer[position] = c;
-		}
-		position++;
-		if (position >= bufsize)
-		{
-			bufsize += LSH_RL_BUFSIZE;
-			buffer = realloc(buffer, bufsize);
-			if (!buffer)
-			{
-				fprintf(stderr, "allocation error\n");
-				exit(EXIT_FAILURE);
-			}
-		}
+		read_loop(c, buffer, bufsize);
 	}
 	#endif
+}
+
+/**
+ * read_loop - helper function
+ * @c: character
+ * @buffer: line of string
+ * @bufsize: size of the buffer
+ *
+ * Return: no return
+ */
+void read_loop(int c, char *buffer, int bufsize)
+{
+	int position = 0;
+
+	if (c == EOF)
+	{
+		exit(EXIT_SUCCESS);
+	}
+	else if (c == '\n')
+	{
+		buffer[position] = '\0';
+		return (buffer);
+	}
+	else
+	{
+		buffer[position] = c;
+	}
+	position++;
+	if (position >= bufsize)
+	{
+		bufsize += BUFSIZE;
+		buffer = realloc(buffer, bufsize);
+		if (!buffer)
+		{
+			fprintf(stderr, "allocation error\n");
+			exit(EXIT_FAILURE);
+		}
+	}
 }
