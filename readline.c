@@ -38,16 +38,7 @@ char *read_line(void)
 	while (1)
 	{
 		c = getchar();
-		if (c == EOF)
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else if (c == '\n')
-		{
-			buffer[position] = '\0';
-			return (buffer);
-		}
-		read_loop(&buffer, &bufsize, position, c);
+		read_loop(buffer, bufsize, position, c);
 	}
 	#endif
 }
@@ -57,10 +48,19 @@ char *read_line(void)
  * @buffer: line of string
  * @bufsize: size of the buffer
  *
- * Return: no return
+ * Return: buffer
  */
-void read_loop(char *buffer, int bufsize, int position, int c)
+char *read_loop(char *buffer, int bufsize, int position, int c)
 {
+	if (c == EOF)
+	{
+		exit(EXIT_SUCCESS);
+	}
+	else if (c == '\n')
+	{
+		buffer[position] = '\0';
+		return (buffer);
+	}
 	else
 	{
 		buffer[position] = c;
