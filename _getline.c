@@ -80,12 +80,12 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		return (-1);
 	}
 
-	if (ferror (stream))
+	if (ferror(stream))
 		return (-1);
 
 	if (feof(stream))
 		return (-1);
-     
+
 	fgets(line, 256, stream);
 
 	ptr = _strchr(line, '\n');
@@ -93,7 +93,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		*ptr = '\0';
 
 	len = _strlen(line);
-   
+
 	if ((len + 1) < 256)
 	{
 		ptr = realloc(*lineptr, 256);
