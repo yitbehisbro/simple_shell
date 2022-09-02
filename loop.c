@@ -11,7 +11,7 @@ void hsh_loop(void)
 	char **args;
 	int status;
 
-	do{
+	do {
 		printf("$ ");
 		line = read_line();
 		args = split_line(line);
