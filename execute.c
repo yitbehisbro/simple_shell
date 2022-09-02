@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * List of builtin commands, followed by
- * their corresponding functions.
+ * builtin_func - catch in array built-in command
+ *
+ * Return: always 0
  */
-char *builtin_str[] = {"cd", "help", "exit", "clear"};
 int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
 
 /**
@@ -17,6 +17,7 @@ int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
 int hsh_execute(char **args)
 {
 	int i;
+	char *builtin_str[] = {"cd", "help", "exit", "clear"};
 
 	if (args[0] == NULL)
 	{
@@ -26,7 +27,7 @@ int hsh_execute(char **args)
 	{
 		if (strcmp(args[0], builtin_str[i]) == 0)
 		{
-			return (*builtin_func[i])(args);
+			return ((*builtin_func[i])(args));
 		}
 	}
 	return (hsh_launch(args));
