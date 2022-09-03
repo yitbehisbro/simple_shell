@@ -7,7 +7,7 @@
  */
 int hsh_num_builtins(void)
 {
-	char *builtin_str1[] = {"cd", "help", "exit", "clear"};
+	char *builtin_str1[] = {"cd", "help", "exit", "clear", "env"};
 
 	return (sizeof(builtin_str1) / sizeof(char *));
 }
