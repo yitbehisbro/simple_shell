@@ -62,6 +62,7 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
+	char *setenv_var[] = {"unsetenv", NULL}, *unsetenv_var[] = {"unsetenv", NULL};
 
 	pid = fork();
 	if (pid == 0)
@@ -72,6 +73,10 @@ int hsh_launch(char **args)
 				hsh_exit_status(_atoi(args[1]));
 			else if ((args[0] == exit_status[0]) && (args[1] == NULL))
 				hsh_exit(args);
+			else if ((args[0] == setenv_var[0]) && (args[1] != NULL) && (args[2] != NULL) && (args[3] == NULL))
+				_setenv(args);
+			else if ((args[0] == unsetenv_var[0]) && (args[1] != NULL) && (args[2] == NULL))
+				_unsetenv(args);			
 			else
 				fprintf(stderr, "%s: not found\n", args[0]);
 		}
