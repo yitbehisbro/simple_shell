@@ -62,7 +62,7 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
-	char *pass = "exit";
+	char **pass[] = {"exit", NULL};
 
 	pid = fork();
 	if (pid == 0)
@@ -72,7 +72,7 @@ int hsh_launch(char **args)
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 || _atoi(args[1]) <= 0)) && (args[2] == NULL))
 				hsh_exit_status(_atoi(args[1]));
 			else if ((args[0] == exit_status[0]) && (args[1] == NULL))
-				hsh_exit((char *)pass);
+				hsh_exit(pass);
 			else
 				fprintf(stderr, "%s: not found\n", args[0]);
 		}
