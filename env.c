@@ -9,7 +9,7 @@ int _env(void)
 {
 	if (setenv("C_IS", "Fun_:)", 1) == -1)
 	{
-		fprintf(stderr, "Error: C_IS not setted\");
+		fprintf(stderr, "Error: C_IS not setted\n");
 	}
         printf("USER=%s\n", getenv("USER"));
         printf("LANGUAGE=%s\n", getenv("LANG"));
