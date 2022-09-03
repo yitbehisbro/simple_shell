@@ -65,6 +65,8 @@ int hsh_help(char __attribute__((unused)) **args)
  */
 int hsh_exit(char *args)
 {
+	if (args)
+		exit(0);
 	return (0);
 }
 
