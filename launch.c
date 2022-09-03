@@ -5,41 +5,52 @@
  * @s: character that holds string values
  * Return: Always 0.
  */
-int _atoi(char *s)
+int _atoi(char **s)
 {
-	unsigned int size, length, outp, signs, x, y;
+	unsigned int size, lengt, outp, signs, x, y;
 
-	length = 0;
+	lengt = 0;
 	size = 0;
 	outp = 0;
 	signs = 1;
 	x = 1;
 
-	while (*(s + length) != '\0')
+	while (s[lengt] != NULL)
 	{
-		if (size > 0 && (*(s + length) < '0' || *(s + length) > '9'))
+		if (size > 0 && (s[lengt] < '0' || s[lengt] > '9'))
 			break;
 
-		if (*(s + length) == '-')
+		if (s[lengt] == '-')
 			signs *= -1;
 
-		if ((*(s + length) >= '0') && (*(s + length) <= '9'))
+		if (s[lengt] >= '0') && (s[lengt] <= '9'))
 		{
 			if (size > 0)
 				x *= 10;
 			size++;
 		}
-		length++;
+		lengt++;
 	}
 
-	for (y = length - size; y < length; y++)
+	for (y = lengt - size; y < lengt; y++)
 	{
-		outp = outp + ((*(s + y) - 48) * x);
+		outp = outp + (s[y] - 48) * x);
 		x /= 10;
 	}
 	return (outp * signs);
 }
 
+/**
+ * hsh_exit_status - exit a program
+ * @args: NULL terminated list of arguments
+ *
+ * Return: exit status
+ */
+int hsh_exit_status(char **args)
+{
+	exit(_atoi(args[0]));
+	return (_atoi(args[0]));
+}
 /**
  * hsh_launch - launchs a program
  * @args: NULL terminated list of arguments
@@ -58,7 +69,7 @@ int hsh_launch(char **args)
 		if (execvp(args[0], args) == -1)
 		{
 			if (args[0] == exit && _atoi(args[1]) >= 0 || _atoi(args[1]) <= 0 && args[2] == NULL)
-				hsh_exit(args[1], 2);
+				hsh_exit_status(args[1]);
 			else
 				fprintf(stderr, "%s: not found\n", args[0]);
 		}
