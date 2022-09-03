@@ -11,7 +11,7 @@ int _env(void)
         printf("LANGUAGE=%s\n", getenv("LANGUAGE"));
         printf("SESSION=%s\n", getenv("SESSION"));
         printf("COMPIZ_CONFIG_PROFILE=%s\n", getenv("COMPIZ_CONFIG_PROFILE"));
-        printf("SHLVL: %s\n", getenv("SHLVL"));
+        printf("SHLVL=%s\n", getenv("SHLVL"));
         printf("HOME=%s\n", getenv("HOME"));
         printf("C_IS=Fun_:)\n");
         printf("DESKTOP_SESSION=%s\n", getenv("DESKTOP_SESSION"));
