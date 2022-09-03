@@ -33,5 +33,7 @@ char *read_loop(void);
 int hsh_env(char __attribute__((unused)) **args);
 int _strcmp(char *s1, char *s2);
 int _atoi(char *s);
+int _unsetenv(char **args);
+int _setenv(char **args)
 
 #endif
