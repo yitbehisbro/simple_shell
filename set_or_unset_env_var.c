@@ -19,6 +19,7 @@ int count_args(char **argv)
 		counter++;
 		i++;
 	}
+	printf("Counter: %d\nIteration: %d\n", counter, i);
 	return (counter);
 }
 /**
