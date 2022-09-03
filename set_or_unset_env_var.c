@@ -11,6 +11,16 @@ void red(void)
 }
 
 /**
+ * reset - set colors to orginal
+ *
+ * Return: no return
+ */
+void reset(void)
+{
+	printf("\033[0m");
+}
+
+/**
  * count_args - counts the parameter passed
  * @argv: argument vector
  *
@@ -57,6 +67,7 @@ int _setenv(char **args)
 		{
 			red();
 			fprintf(stderr, "error: ");
+			reset();
 			fprintf(stderr, "Failed to set the variable\n");
 		}
 	}
@@ -87,6 +98,7 @@ int _unsetenv(char **args)
 		{
 			red();
 			fprintf(stderr, "error: ");
+			reset();
 			fprintf(stderr, "Failed to unset the variable\n");
 		}
 	}
