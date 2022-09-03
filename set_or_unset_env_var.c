@@ -36,11 +36,11 @@ int _setenv(char **args)
 		return (1);
 	}
 	if (argc == 1)
-		fprintf(stderr, "hsh: Failed to set the variable\n");
+		fprintf(stderr, "hsh: Very few argument for %s\n", args[0]);
 	if (argc == 2)
-		fprintf(stderr, "hsh: Failed to set the variable\n");
+		fprintf(stderr, "hsh: Very few argument for %s\n", args[0]);
 	if (argc > 3)
-		fprintf(stderr, "hsh: Failed to set the variable\n");
+		fprintf(stderr, "hsh: Too much argument for %s\n", args[0]);
 	if (argc == 3)
 	{
 		if (setenv(args[1], args[2], 1) == -1)
@@ -57,13 +57,22 @@ int _setenv(char **args)
  */
 int _unsetenv(char **args)
 {
+	int argc = count_args(args);
+
 	if (args == NULL)
 	{
 		return (1);
 	}
-	if (unsetenv(args[1]) == -1)
+	if (argc == 1)
+		fprintf(stderr, "hsh: Very few argument for %s\n", args[0]);
+	if (argc > 2)
+		fprintf(stderr, "hsh: Too much argument for %s\n", args[0]);
+	if (argc == 2)
 	{
-		fprintf(stderr, "hsh: Failed to unset the variable\n");
+		if (unsetenv(args[1]) == -1)
+		{
+			fprintf(stderr, "hsh: Failed to unset the variable\n");
+		}
 	}
 	return (1);
 }
