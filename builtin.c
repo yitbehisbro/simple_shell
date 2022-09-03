@@ -66,9 +66,9 @@ int hsh_help(char __attribute__((unused)) **args)
 int hsh_exit(char **args)
 {
 	if (args != NULL && args[1] != NULL)
-		return (_atoi(args[1]));
+		exit(_atoi(args[1]));
 	else if (args != NULL && args[1] == NULL)
-		return (0);
+		exit(0);
 	else
 		return (1);
 }
