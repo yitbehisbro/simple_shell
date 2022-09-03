@@ -31,6 +31,6 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *read_loop(void);
-int _env(void);
+int hsh_env(char __attribute__((unused)) **args);
 
 #endif
