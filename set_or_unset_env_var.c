@@ -56,7 +56,7 @@ int _setenv(char **args)
 		if (setenv(args[1], args[2], 1) == -1)
 		{
 			red();
-			printf("error: ");
+			fprintf(stderr, "error: ");
 			fprintf(stderr, "Failed to set the variable\n");
 		}
 	}
@@ -86,7 +86,7 @@ int _unsetenv(char **args)
 		if (unsetenv(args[1]) == -1)
 		{
 			red();
-			printf("error: ");
+			fprintf(stderr, "error: ");
 			fprintf(stderr, "Failed to unset the variable\n");
 		}
 	}
