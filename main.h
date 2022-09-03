@@ -13,7 +13,6 @@
 #include <stddef.h>
 #include <errno.h>
 
-
 void hsh_loop(void);
 char **split_line(char *line);
 char *read_line(void);
@@ -32,5 +31,6 @@ char *_strcpy(char *dest, char *src);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *read_loop(void);
 int hsh_env(char __attribute__((unused)) **args);
+int _strcmp(char *s1, char *s2);
 
 #endif
