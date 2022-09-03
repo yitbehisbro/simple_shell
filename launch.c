@@ -74,7 +74,7 @@ int hsh_launch(char **args)
 				hsh_exit_status(_atoi(args[1]));
 			else if ((args[0] == exit_status[0]) && (args[1] == NULL))
 				hsh_exit(args);
-			else if ((args[0] == setenv_var[0]) && (args[1] != NULL) && (args[2] != NULL) && (args[3] == NULL))
+			else if ((args[0] == setenv_var[0]))
 				_setenv(args);
 			else if ((args[0] == unsetenv_var[0]) && (args[1] != NULL) && (args[2] == NULL))
 				_unsetenv(args);
