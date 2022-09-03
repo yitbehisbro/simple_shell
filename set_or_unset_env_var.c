@@ -8,7 +8,7 @@
  */
 int count_args(char **argv)
 {
-	int counter = 1, i = 0;
+	int i = 0;
 
 	if (argv == NULL)
 	{
@@ -16,11 +16,10 @@ int count_args(char **argv)
 	}
 	while (argv[i] != NULL)
 	{
-		counter++;
 		i++;
 	}
-	printf("Counter: %d\nIteration: %d\n", counter, i);
-	return (counter);
+	/** printf("Counter: %d\nIteration: %d\n", counter, i);*/
+	return (i);
 }
 /**
  * _setenv - set envirnomental variable
