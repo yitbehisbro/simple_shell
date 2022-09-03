@@ -3,7 +3,7 @@
 /**
  * _env - prints the result for env
  *
- * Result: Always 0
+ * Return: Always 0
  */
 int _env(void)
 {
