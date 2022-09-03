@@ -29,17 +29,22 @@ int count_args(char **argv)
  */
 int _setenv(char **args)
 {
-	if (count_args(args) < 2 || count_args(args) > 3)
-	{
-		fprintf(stderr, "hsh: Failed to set the variable\n");
-	}	
+	int argc = count_args(args);
+
 	if (args == NULL)
 	{
 		return (1);
 	}
-	if (setenv(args[1], args[2], 1) == -1)
-	{
+	if (argc == 1)
 		fprintf(stderr, "hsh: Failed to set the variable\n");
+	if (argc == 2)
+		fprintf(stderr, "hsh: Failed to set the variable\n");
+	if (argc > 3)
+		fprintf(stderr, "hsh: Failed to set the variable\n");
+	if (argc == 3)
+	{
+		if (setenv(args[1], args[2], 1) == -1)
+			fprintf(stderr, "hsh: Failed to set the variable\n");
 	}
 	return (1);
 }
