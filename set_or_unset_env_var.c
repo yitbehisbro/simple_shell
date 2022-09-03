@@ -12,7 +12,7 @@ int _setenv(char **args)
 	{
 		if (setenv(args[1], args[2], 1) == -1)
 		{
-			fprintf(stderr, "Failed to set the variable"); 
+			fprintf(stderr, "hsh: Failed to set the variable\n"); 
 		}
 		return (1);
 	}
@@ -33,7 +33,7 @@ int _unsetenv(char **args)
 	}
 	if (unsetenv(args[1]) == -1)
 	{
-		fprintf(stderr, "Failed to unset the variable");
+		fprintf(stderr, "hsh: Failed to unset the variable\n");
 	}
 	return (1);
 }
