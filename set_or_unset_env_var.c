@@ -57,13 +57,13 @@ int _setenv(char **args)
 	}
 	if (argc == 1)
 		fprintf(stderr, "hsh: Very few argument for: %s.\n
-			Try 'man setenv' for more information.\n", args[0]);
+			"Try 'man setenv' for more information.\n", args[0]);
 	if (argc == 2)
 		fprintf(stderr, "hsh: Very few argument for: %s.\n
-			Try 'man setenv' for more information.\n", args[0]);
+			"Try 'man setenv' for more information.\n", args[0]);
 	if (argc > 3)
 		fprintf(stderr, "hsh: Too much argument for: %s.\n
-			Try 'man setenv' for more information.\n", args[0]);
+			"Try 'man setenv' for more information.\n", args[0]);
 	if (argc == 3)
 	{
 		if (setenv(args[1], args[2], 1) == -1)
@@ -93,10 +93,10 @@ int _unsetenv(char **args)
 	}
 	if (argc == 1)
 		fprintf(stderr, "hsh: Very few argument for: %s.\n
-			Try 'man unsetenv' for more information.\n", args[0]);
+			"Try 'man unsetenv' for more information.\n", args[0]);
 	if (argc > 2)
 		fprintf(stderr, "hsh: Too much argument for: %s.\n
-			Try 'man unsetenv' for more information.\n", args[0]);
+			"Try 'man unsetenv' for more information.\n", args[0]);
 	if (argc == 2)
 	{
 		if (unsetenv(args[1]) == -1)
