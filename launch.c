@@ -62,7 +62,6 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
-	char *pass[] = {"exit", NULL};
 
 	pid = fork();
 	if (pid == 0)
