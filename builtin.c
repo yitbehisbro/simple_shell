@@ -58,7 +58,7 @@ int hsh_help(char __attribute__((unused)) **args)
 }
 
 /**
- * hsh_exit - exit the execusion
+ * hsh_exit - exit the execution
  * @args: list of args
  *
  * Return: Always returns 0
@@ -67,11 +67,12 @@ int hsh_exit(char __attribute__((unused)) **args)
 {
 	return (0);
 }
+
 /**
  * hsh_clear - clear the console
  * @args: list of args
  *
- * Return: Always returns 0
+ * Return: Always returns 1
  */
 int hsh_clear(char __attribute__((unused)) **args)
 {
