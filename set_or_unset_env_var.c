@@ -16,9 +16,8 @@ int count_args(char **argv)
 	}
 	while (argv[i] != NULL)
 	{
-		if (argv[i] == " ")
-			counter++;
-		i++
+		counter++;
+		i++;
 	}
 	return (counter);
 }
