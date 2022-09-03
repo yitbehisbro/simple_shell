@@ -67,8 +67,10 @@ int hsh_exit(char **args)
 {
 	if (args != NULL && args[1] != NULL)
 		exit(_atoi(args[1]));
+	else if (args != NULL && args[1] == NULL)
+		exit(0);
 	else
-		return (exit(0));
+		return (1);
 }
 
 /**
