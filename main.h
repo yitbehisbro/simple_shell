@@ -18,7 +18,7 @@ char **split_line(char *line);
 char *read_line(void);
 int hsh_execute(char **args);
 int hsh_launch(char **args);
-int hsh_exit(char *args);
+int hsh_exit(char **args);
 int hsh_help(char **args);
 int hsh_cd(char **args);
 int hsh_num_builtins(void);
