@@ -7,6 +7,8 @@
  */
 int _env(void)
 {
+	
+        printf("ME=%s\n", getenv("ME"));
         printf("USER=%s\n", getenv("USER"));
         printf("LANGUAGE=%s\n", getenv("LANGUAGE"));
         printf("SESSION=%s\n", getenv("SESSION"));
