@@ -35,5 +35,6 @@ int _strcmp(char *s1, char *s2);
 int _atoi(char *s);
 int _unsetenv(char **args);
 int _setenv(char **args);
+int count_args(char **argv);
 
 #endif
