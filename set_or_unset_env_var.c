@@ -8,9 +8,13 @@
  */
 int _setenv(char **args)
 {
-	if (setenv(args[1], args[2], 1) == -1)
+	if (args != NULL)
 	{
-		fprintf(stderr, "Failed to set the variable"); 
+		if (setenv(args[1], args[2], 1) == -1)
+		{
+			fprintf(stderr, "Failed to set the variable"); 
+		}
+		return (1);
 	}
 	return (1);
 }
@@ -23,9 +27,13 @@ int _setenv(char **args)
  */
 int _unsetenv(char **args)
 {
+	if (args == NULL)
+	{
+		return (1);
+	}
 	if (unsetenv(args[1]) == -1)
 	{
-		fprintf(stderr, "Failed to unset the variable"); 
+		fprintf(stderr, "Failed to unset the variable");
 	}
 	return (1);
 }
