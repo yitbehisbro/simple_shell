@@ -60,16 +60,12 @@ int hsh_help(char __attribute__((unused)) **args)
 /**
  * hsh_exit - exit the execution
  * @args: list of args
- * @status: status of exit
  *
  * Return: Always returns 0
  */
-int hsh_exit(char **args, int status)
+int hsh_exit(char __attribute__((unused)) **args)
 {
-	if (!status)
-		return (0);
-	if (status == 2)
-		return (_atoi(args));
+	return (0);
 }
 
 /**
