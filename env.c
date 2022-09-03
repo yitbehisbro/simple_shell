@@ -35,3 +35,13 @@ int _env(void)
 
         return (0);
 }
+/**
+ * hsh_env - list the env variables value
+ * @args: list of args
+ *
+ * Return: Always returns 0
+ */
+int hsh_env(char __attribute__((unused)) **args)
+{
+	return (_env());
+}
