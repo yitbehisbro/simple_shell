@@ -32,6 +32,6 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *read_loop(void);
 int hsh_env(char __attribute__((unused)) **args);
 int _strcmp(char *s1, char *s2);
-int _atoi(char *s);
+int _atoi(char **s);
 
 #endif
