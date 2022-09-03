@@ -8,13 +8,13 @@
  */
 int _setenv(char **args)
 {
-	if (args != NULL)
+	if (args == NULL)
 	{
-		if (setenv(args[1], args[2], 1) == -1)
-		{
-			fprintf(stderr, "hsh: Failed to set the variable\n"); 
-		}
 		return (1);
+	}
+	if (setenv(args[1], args[2], 1) == -1)
+	{
+		fprintf(stderr, "hsh: Failed to set the variable\n");
 	}
 	return (1);
 }
