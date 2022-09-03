@@ -43,5 +43,6 @@ int _env(void)
  */
 int hsh_env(char __attribute__((unused)) **args)
 {
-	return (_env());
+	_env();
+	return (1);
 }
