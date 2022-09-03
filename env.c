@@ -7,13 +7,17 @@
  */
 int _env(void)
 {
+	if (setenv("C_IS", "Fun_:)", 1) == -1)
+	{
+		fprintf(stderr, "Error: C_IS not setted\");
+	}
         printf("USER=%s\n", getenv("USER"));
         printf("LANGUAGE=%s\n", getenv("LANG"));
         printf("SESSION=%s\n", getenv("SESSION"));
         printf("COMPIZ_CONFIG_PROFILE=%s\n", getenv("COMPIZ_CONFIG_PROFILE"));
         printf("SHLVL=%s\n", getenv("SHLVL"));
         printf("HOME=%s\n", getenv("HOME"));
-        printf("C_IS=Fun_:)\n");
+        printf("C_IS=%s\n", getenv("C_IS"));
         printf("DESKTOP_SESSION=%s\n", getenv("DESKTOP_SESSION"));
         printf("LOGNAME=%s\n", getenv("LOGNAME"));
         printf("TERM=%s\n", getenv("TERM"));
