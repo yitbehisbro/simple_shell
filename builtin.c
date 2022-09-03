@@ -7,7 +7,7 @@
  */
 int hsh_num_builtins(void)
 {
-	char *builtin_str1[] = {"cd", "help", "exit", "clear", "env"};
+	char *builtin_str1[] = {"cd", "help", "clear", "env"};
 
 	return (sizeof(builtin_str1) / sizeof(char *));
 }
@@ -63,7 +63,7 @@ int hsh_help(char __attribute__((unused)) **args)
  *
  * Return: Always returns 0
  */
-int hsh_exit(char __attribute__((unused)) **args)
+int hsh_exit(char *args)
 {
 	return (0);
 }
