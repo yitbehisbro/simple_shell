@@ -69,7 +69,7 @@ int hsh_help(char __attribute__((unused)) **args)
 	{
 		printf("\t=> %s\n", builtin_str1[i]);
 	}
-	printf("Use the man command for information on other programs.\n");
+	printf("Use 'man <argument>' for information on each program.\n");
 	return (1);
 }
 
