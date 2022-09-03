@@ -80,3 +80,13 @@ int hsh_clear(char __attribute__((unused)) **args)
 	system("clear");
 	return (hsh_launch(str));
 }
+/**
+ * hsh_env - list the env variables value
+ * @args: list of args
+ *
+ * Return: Always returns 0
+ */
+int hsh_env(char __attribute__((unused)) **args)
+{
+	return (_env());
+}
