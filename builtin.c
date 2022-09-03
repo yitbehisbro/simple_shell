@@ -65,10 +65,10 @@ int hsh_help(char __attribute__((unused)) **args)
  */
 int hsh_exit(char **args)
 {
-	if (args != NULL)
-		exit(98);
+	if (args != NULL && args[1] != NULL)
+		exit(_atoi(args[1]));
 	else
-		return (100);
+		return (exit(0));
 }
 
 /**
