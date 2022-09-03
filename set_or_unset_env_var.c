@@ -7,7 +7,7 @@
  */
 void red(void)
 {
-	fprintf("\033[1;31m");
+	fprintf(stderr, "\033[1;31m");
 }
 
 /**
@@ -17,7 +17,7 @@ void red(void)
  */
 void reset(void)
 {
-	fprintf("\033[0m");
+	fprintf(stderr, "\033[0m");
 }
 
 /**
