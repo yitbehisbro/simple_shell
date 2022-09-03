@@ -4,12 +4,16 @@
  * count_args - counts the parameter passed
  * @argv: argument vector
  *
- * Return: number of word
+ * Return: number of word else 1
  */
 int count_args(char **argv)
 {
-	int counter = 1;
+	int counter = 1, i = 0;
 
+	if (argv == NULL)
+	{
+		return (1);
+	}
 	while (argv[i] != NULL)
 	{
 		if (argv[i] == " ")
