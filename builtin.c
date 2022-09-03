@@ -51,7 +51,7 @@ int hsh_help(char __attribute__((unused)) **args)
 
 	for (i = 0; i < hsh_num_builtins(); i++)
 	{
-		printf("  %s\n", builtin_str1[i]);
+		printf("=> %s\n", builtin_str1[i]);
 	}
 	printf("Use the man command for information on other programs.\n");
 	return (1);
@@ -60,12 +60,16 @@ int hsh_help(char __attribute__((unused)) **args)
 /**
  * hsh_exit - exit the execution
  * @args: list of args
+ * @status: status of exit
  *
  * Return: Always returns 0
  */
-int hsh_exit(char __attribute__((unused)) **args)
+int hsh_exit(char **args, int status)
 {
-	return (0);
+	if (!status)
+		return (0);
+	if (status == 2)
+		return (_atoi(args));
 }
 
 /**
