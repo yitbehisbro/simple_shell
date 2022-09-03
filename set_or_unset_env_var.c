@@ -1,6 +1,16 @@
 #include "main.h"
 
 /**
+ * red - set colors to red
+ *
+ * Return: no return
+ */
+void red(void)
+{
+	printf("\033[1;31m");
+}
+
+/**
  * count_args - counts the parameter passed
  * @argv: argument vector
  *
@@ -44,7 +54,11 @@ int _setenv(char **args)
 	if (argc == 3)
 	{
 		if (setenv(args[1], args[2], 1) == -1)
-			fprintf(stderr, "hsh: Failed to set the variable\n");
+		{
+			red();
+			printf("error: ");
+			fprintf(stderr, "Failed to set the variable\n");
+		}
 	}
 	return (1);
 }
@@ -71,7 +85,9 @@ int _unsetenv(char **args)
 	{
 		if (unsetenv(args[1]) == -1)
 		{
-			fprintf(stderr, "hsh: Failed to unset the variable\n");
+			red();
+			printf("error: ");
+			fprintf(stderr, "Failed to unset the variable\n");
 		}
 	}
 	return (1);
