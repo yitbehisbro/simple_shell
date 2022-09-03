@@ -48,8 +48,9 @@ int _atoi(char *s)
  */
 int hsh_exit_status(char *args)
 {
-	exit(_atoi(args[0]));
-	return (_atoi(args[0]));
+	int status = _atoi((char *)args[0]);
+
+	exit(status);
 }
 /**
  * hsh_launch - launchs a program
@@ -61,14 +62,14 @@ int hsh_launch(char **args)
 {
 	pid_t pid;
 	int status;
-	char *exit[] = {"exit", NULL};
+	char *exit_status[] = {"exit", NULL};
 
 	pid = fork();
 	if (pid == 0)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			if ((args[0] == exit[0]) && (_atoi(args[1]) >= 0) || (_atoi(args[1]) <= 0) && (args[2] == NULL))
+			if ((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0) || (_atoi(args[1]) <= 0) && (args[2] == NULL))
 				hsh_exit_status(args[1]);
 			else
 				fprintf(stderr, "%s: not found\n", args[0]);
