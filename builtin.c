@@ -7,7 +7,15 @@
  */
 int hsh_num_builtins(void)
 {
-	char *builtin_str1[] = {"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"};
+	char *builtin_str1[] = {
+		"cd",
+		"help",
+		"clear",
+		"exit",
+		"env",
+		"setenv",
+		"unsetenv"
+		};
 
 	return (sizeof(builtin_str1) / sizeof(char *));
 }
@@ -42,8 +50,16 @@ int hsh_cd(char **args)
  */
 int hsh_help(char __attribute__((unused)) **args)
 {
-	char *builtin_str1[] = {"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"};
 	int i;
+	char *builtin_str1[] = {
+		"cd",
+		"help",
+		"clear",
+		"exit",
+		"env",
+		"setenv",
+		"unsetenv"
+		};
 
 	printf("Group Project for ALX Software Engineering\n");
 	printf("Type a program names and arguments, and then hit the ENTER.\n");
