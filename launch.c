@@ -70,7 +70,7 @@ int hsh_launch(char **args)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 || _atoi(args[1]) <= 0)) && (args[2] == NULL))
 				hsh_exit_status(_atoi(args[1]));
-			if ((args[0] == exit_status[0]) && (_atoi(args[1]) == NULL))
+			if ((args[0] == exit_status[0]) && (args[1] == NULL))
 			    hsh_exit(exit_status[0]);
 			else
 				fprintf(stderr, "%s: not found\n", args[0]);
