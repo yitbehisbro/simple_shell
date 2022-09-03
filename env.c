@@ -7,19 +7,6 @@
  */
 int _env(void)
 {
-	/**
-	 * char *home = getenv("HOME");
-         * char *ses = getenv("SESSION");
-         * char *lang = getenv("LANGUAGE");
-         * char *ptr = getenv("USER");
-         * char *shl = getenv("SHLVL");
-         * char *cnf = getenv("COMPIZ_CONFIG_PROFILE");
-         * char *dses = getenv("DESKTOP_SESSION");
-         * char *log = getenv("LOGNAME");
-         * char *term = getenv("TERM");
-         * char *path = getenv("PATH");
-         * char *dis = getenv("DISPLAY");
-	*/
         printf("USER=%s\n", getenv("USER"));
         printf("LANGUAGE=%s\n", getenv("LANGUAGE"));
         printf("SESSION=%s\n", getenv("SESSION"));
@@ -39,7 +26,7 @@ int _env(void)
  * hsh_env - list the env variables value
  * @args: list of args
  *
- * Return: Always returns 0
+ * Return: Always returns 1
  */
 int hsh_env(char __attribute__((unused)) **args)
 {
