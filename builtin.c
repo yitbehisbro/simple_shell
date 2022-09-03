@@ -70,7 +70,7 @@ int hsh_help(char __attribute__((unused)) **args)
 		printf("\t=> %s\n", builtin_str1[i]);
 	}
 	printf("Use 'man <argument>' for more information on each program.\n");
-	printf("Copyright © 2022 Yitbarek Wendimu and Mubarak Olajuwon");
+	printf("Copyright © 2022 Yitbarek Wendimu and Mubarak Olajuwon\n");
 	return (1);
 }
 
