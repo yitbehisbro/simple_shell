@@ -46,12 +46,12 @@ int hsh_help(char __attribute__((unused)) **args)
 	int i;
 
 	printf("Group Project for ALX Software Engineering\n");
-	printf("Type a program names and arguments, and hit ENTER.\n");
+	printf("Type a program names and arguments, and then hit the ENTER.\n");
 	printf("The following are built in:\n");
 
 	for (i = 0; i < hsh_num_builtins(); i++)
 	{
-		printf("=> %s\n", builtin_str1[i]);
+		printf("\t=> %s\n", builtin_str1[i]);
 	}
 	printf("Use the man command for information on other programs.\n");
 	return (1);
