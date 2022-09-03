@@ -34,9 +34,9 @@ int _strcmp(char *s1, char *s2)
 int hsh_execute(char **args)
 {
 	int i;
-	char *builtin_str[] = {"cd", "help", "clear", "exit", "env"};
+	char *builtin_str[] = {"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"};
 
-	int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_clear, &hsh_exit, &hsh_env};
+	int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_clear, &hsh_exit, &hsh_env, &_setenv, &_unsetenv};
 
 	if (args[0] == NULL)
 	{
