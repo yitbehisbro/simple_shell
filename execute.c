@@ -10,9 +10,9 @@
 int hsh_execute(char **args)
 {
 	int i;
-	char *builtin_str[] = {"cd", "help", "exit", "clear"};
+	char *builtin_str[] = {"cd", "help", "exit", "clear", "env"};
 
-	int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear};
+	int (*builtin_func[]) (char **) = {&hsh_cd, &hsh_help, &hsh_exit, &hsh_clear, &_env};
 
 	if (args[0] == NULL)
 	{
