@@ -42,7 +42,7 @@ int hsh_cd(char **args)
  */
 int hsh_help(char __attribute__((unused)) **args)
 {
-	char *builtin_str1[] = {"cd", "help", "exit", "clear"};
+	char *builtin_str1[] = {"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"};
 	int i;
 
 	printf("Group Project for ALX Software Engineering\n");
