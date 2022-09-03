@@ -7,10 +7,8 @@
  */
 int _env(void)
 {
-	
-        printf("ME=%s\n", getenv("ME"));
         printf("USER=%s\n", getenv("USER"));
-        printf("LANGUAGE=%s\n", getenv("LC_ALL"));
+        printf("LANGUAGE=%s\n", getenv("LANG"));
         printf("SESSION=%s\n", getenv("SESSION"));
         printf("COMPIZ_CONFIG_PROFILE=%s\n", getenv("COMPIZ_CONFIG_PROFILE"));
         printf("SHLVL=%s\n", getenv("SHLVL"));
