@@ -1,6 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+#define _GNU_SOURCE
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIM "\" ;\t\r\n\a"
 #define BUFSIZE 1024
