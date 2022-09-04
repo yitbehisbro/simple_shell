@@ -3,6 +3,7 @@
 
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIM "\" \t\r\n\a"
+#define BUFSIZE 1024
 
 #include <sys/wait.h>
 #include <sys/types.h>
