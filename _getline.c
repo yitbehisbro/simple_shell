@@ -69,7 +69,7 @@ char *_strcpy(char *dest, char *src)
  * including the delimiter character, but not
  * including the terminating null byte
  */
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
+ssize_t _getline(char **lineptr, ssize_t *n, FILE *stream)
 {
 	static char line[256];
 	char *ptr;
