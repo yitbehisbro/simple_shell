@@ -69,7 +69,7 @@ int hsh_launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvpe(args[0], args, environ) == -1)
+		if (execve(args[0], args, environ) == -1)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
 							     _atoi(args[1]) <= 0)) && (args[2] == NULL))
