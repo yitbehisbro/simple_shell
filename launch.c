@@ -59,6 +59,7 @@ int hsh_exit_status(int status)
  */
 int hsh_launch(char **args)
 {
+	extern char **environ;
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
@@ -68,7 +69,7 @@ int hsh_launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (execvpe(args[0], args, environ) == -1)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
 							     _atoi(args[1]) <= 0)) && (args[2] == NULL))
