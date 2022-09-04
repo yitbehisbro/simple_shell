@@ -7,8 +7,6 @@
  */
 char *read_line(void)
 {
-	#ifdef LSH_USE_STD_GETLINE
-
 	char *line = NULL;
 	ssize_t bufsize = 0;
 
@@ -25,7 +23,6 @@ char *read_line(void)
 		}
 	}
 	return (line);
-	#else
 	return (read_loop());
 }
 
@@ -36,7 +33,6 @@ char *read_line(void)
  */
 char *read_loop(void)
 {
-	#define BUFSIZE 1024
 	int c, position = 0, bufsize = BUFSIZE;
 	char *buffer = malloc(sizeof(char) * bufsize);
 
