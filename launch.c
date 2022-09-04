@@ -62,7 +62,7 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
-	char *setenv_var[] = {"unsetenv", NULL};
+	char *setenv_var[] = {"setenv", NULL};
 	char *unsetenv_var[] = {"unsetenv", NULL};
 
 	pid = fork();
