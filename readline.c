@@ -69,5 +69,4 @@ char *read_loop(void)
 			}
 		}
 	}
-	#endif
 }
