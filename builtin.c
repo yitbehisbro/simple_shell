@@ -29,6 +29,9 @@ int hsh_num_builtins(void)
 int hsh_cd(char **args)
 {
 	char *home[] = {"~", "-", NULL};
+	char cwd[256];
+
+	getcwd(cwd, sizeof(cwd);
 
 	if (args[1] == NULL)
 	{
@@ -40,9 +43,24 @@ int hsh_cd(char **args)
 		if (chdir(args[1]) != 0)
 		{
 			if (strcmp(args[1], home[0]) == 0)
+			{
 				chdir(getenv("HOME"));
+			}
+			else if (strcmp(args[1], home[1]) == 0)
+			{
+				if (strcmp(cwd, getenv("HOME")) != 0)
+				{
+					chdir(getenv("HOME"));
+				}
+				else
+				{
+					chdir(cwd);
+				}
+			}		
 			else
+			{
 				perror("hsh: failed");
+			}
 		}
 	}
 	return (1);
