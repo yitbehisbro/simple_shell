@@ -28,19 +28,11 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
+	const char *filename = "cd_helper";
 	char *home[] = {"~", "-", NULL};
 	char cwd[256];
-	static char *oldwd;
 
 	getcwd(cwd, sizeof(cwd));
-	oldwd = malloc(1024);
-	if (oldwd != NULL)
-	{
-		setenv("OLDPWD", cwd, 1);
-		oldwd = getenv("OLDPWD");
-	}
-	printf("%s\n", oldwd);
-	printf("%s\n", cwd);
 
 	if (args[1] == NULL)
 	{
@@ -59,8 +51,11 @@ int hsh_cd(char **args)
 			{
 				if (strcmp(cwd, getenv("HOME")) != 0)
 				{
-					chdir(getenv("HOME"));
-					printf("%s\n", getenv("HOME"));
+					if (create_file(filename, cwd) == 1)
+					{
+						chdir(getenv("HOME"));
+						printf("%s\n", getenv("HOME"));
+					}
 				}
 				else
 				{
