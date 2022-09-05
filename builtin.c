@@ -51,6 +51,7 @@ int hsh_cd(char **args)
 				if (strcmp(cwd, getenv("HOME")) != 0)
 				{
 					chdir(getenv("HOME"));
+					printf("%s\n", getenv("HOME"));
 				}
 				else
 				{
