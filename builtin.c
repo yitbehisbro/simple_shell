@@ -56,14 +56,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					if (chdir(read_file(filename, 100)))
-					{
-						printf("%s\n", read_file(filename, 100));
-					}
-					else
-					{
-						perror("WUUUUUUUUUUUUUUUUUUUUUUUUU");
-					}
+					printf("%s\n", read_file(filename, 100));
 				}
 			}		
 			else
