@@ -56,8 +56,8 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					chdir(oldwd);
-					printf("%s\n", oldwd);
+					chdir(getenv("OLDPWD"));
+					printf("%s\n", getenv("OLDPWD"));
 				}
 			}		
 			else
