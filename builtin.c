@@ -29,8 +29,9 @@ int hsh_num_builtins(void)
 int hsh_cd(char **args)
 {
 	char *home[] = {"~", "-", NULL};
-	char cwd[256];
+	char cwd[256], *oldwd;
 
+	olwd = getenv("OLDPWD");
 	getcwd(cwd, sizeof(cwd));
 
 	if (args[1] == NULL)
@@ -55,8 +56,11 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					chdir(getenv("OLDPWD"));
-					printf("%s\n", getenv("OLDPWD"));
+					if (strcmp(getenv("OLDPWD"), getenv("HOME")) == 0)
+						printf("Nothing changed!\n");
+					else
+						chdir(getenv(olwd));
+						printf("%s\n", getenv(olwd));
 				}
 			}		
 			else
