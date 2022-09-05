@@ -28,9 +28,11 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	if (args[1] == "~")
+	char *home[] = {"~", NULL};
+
+	if (args[1] == NULL)
 	{
-		chdir("~");
+		chdir(home[0]);
 		/** fprintf(stderr, "expected argument to \"cd\"\n"); */
 	}
 	else
