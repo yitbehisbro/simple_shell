@@ -56,6 +56,7 @@ int hsh_cd(char **args)
 				{
 					chdir(getenv("HOME"));
 					printf("%s\n", getenv("HOME"));
+					printf("%s\n", cwd);
 				}
 				else
 				{
