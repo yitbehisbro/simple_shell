@@ -28,12 +28,9 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	const char *filename = "cd_helper";
-	char *home[] = {"~", "-", NULL};
-	char cwd[256];
+	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
 
 	getcwd(cwd, sizeof(cwd));
-
 	if (args[1] == NULL)
 	{
 		chdir(getenv("HOME"));
