@@ -56,8 +56,14 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					chdir(getenv("OLDPWD"));
-					printf("%s\n", getenv("OLDPWD"));
+					if (chdir(read_file(filename, 100)))
+					{
+						printf("%s\n", read_file(filename, 100));
+					}
+					else
+					{
+						perror("WUUUUUUUUUUUUUUUUUUUUUUUUU");
+					}
 				}
 			}		
 			else
