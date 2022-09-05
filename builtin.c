@@ -31,8 +31,11 @@ int hsh_cd(char **args)
 	char *home[] = {"~", "-", NULL};
 	char cwd[256], *oldwd;
 
-	oldwd = getenv("OLDPWD");
 	getcwd(cwd, sizeof(cwd));
+	oldwd = malloc(1024);
+
+	if (oldwd != NULL)
+		oldwd = getenv("OLDPWD");
 
 	if (args[1] == NULL)
 	{
@@ -62,6 +65,7 @@ int hsh_cd(char **args)
 					{
 						chdir(getenv(oldwd));
 						printf("%s\n", getenv(oldwd));
+						free(oldwd);
 					}
 				}
 			}		
