@@ -50,13 +50,14 @@ int hsh_cd(char **args)
 				{
 					if (create_file(filename, cwd) == 1)
 					{
+						printf("%s\n",  read_file(filename, sizeof(cwd)));
 						chdir(getenv("HOME"));
 						printf("%s\n", getenv("HOME"));
 					}
 				}
 				else
 				{
-					printf("%s\n", read_file(filename, 0));
+					printf("Sorry\n");
 				}
 			}		
 			else
