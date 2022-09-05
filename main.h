@@ -14,6 +14,9 @@
 #include <string.h>
 #include <stddef.h>
 #include <errno.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 
 void hsh_loop(void);
 char **split_line(char *line);
