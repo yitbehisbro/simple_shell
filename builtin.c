@@ -51,7 +51,7 @@ int hsh_cd(char **args)
 					chdir(getenv("OLDPWD"));
 					printf("%s\n", getenv("OLDPWD"));
 				}
-			}		
+			}
 			else
 			{
 				perror("hsh: failed");
