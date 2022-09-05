@@ -1,6 +1,5 @@
 #include "main.h"
 
-size_t size;
 /**
  * hsh_num_builtins - evaluate the size of bultins
  *
@@ -45,8 +44,7 @@ int hsh_cd(char **args)
 				{
 					if (create_file(filename, cwd) == 1)
 					{
-						size = sizeof(cwd);
-						printf("%s(d)\n",  read_file(filename, size));
+						setenv("OLDPWD", cwd, 1);
 						printf("%s\n",  read_file(filename, sizeof(cwd)));
 						chdir(getenv("HOME"));
 						printf("%s\n", getenv("HOME"));
@@ -54,8 +52,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("%ld\n", size);
-					printf("%s\n",  read_file(filename, size));
+					chdir(getenv("OLDPWD"));
 				}
 			}		
 			else
