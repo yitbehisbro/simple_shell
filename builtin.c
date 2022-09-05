@@ -58,7 +58,7 @@ int hsh_cd(char **args)
 				else
 				{
 					printf("Sorry\n");
-					printf("%s\n",  read_file(filename, SEEK_END));
+					printf("%s\n",  read_file(filename, sizeof(cwd) + 2));
 				}
 			}		
 			else
