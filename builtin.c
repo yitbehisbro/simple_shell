@@ -31,7 +31,7 @@ int hsh_cd(char **args)
 	char *home[] = {"~", "-", NULL};
 	char cwd[256];
 
-	getcwd(cwd, sizeof(cwd);
+	getcwd(cwd, sizeof(cwd));
 
 	if (args[1] == NULL)
 	{
