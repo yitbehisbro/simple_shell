@@ -22,7 +22,7 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
+	char *home[] = {"~", "-", NULL}, cwd[256];
 
 	getcwd(cwd, sizeof(cwd));
 	if (args[1] == NULL)
