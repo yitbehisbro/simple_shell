@@ -71,6 +71,5 @@ char *read_file(const char *filename, size_t letters)
 		free(buffer);
 		return (0);
 	}
-	free(buffer);
 	return (buffer);
 }
