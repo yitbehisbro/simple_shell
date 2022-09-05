@@ -28,7 +28,7 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	char *home[] = {"~", NULL};
+	char *home[] = {"~", "-", NULL};
 
 	if (args[1] == NULL)
 	{
@@ -39,7 +39,7 @@ int hsh_cd(char **args)
 	{
 		if (chdir(args[1]) != 0)
 		{
-			if (args[1] == home[0])
+			if (strcmp(args[1], home[0]) == 0)
 				chdir(getenv("HOME"));
 			else
 				perror("hsh: failed");
