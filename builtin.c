@@ -1,5 +1,6 @@
 #include "main.h"
 
+extern size_t size;
 /**
  * hsh_num_builtins - evaluate the size of bultins
  *
@@ -28,10 +29,10 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	char *size_name = "size", *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
+	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
 
 	getcwd(cwd, sizeof(cwd));
-	printf("%s\n",  read_file(filename, sizeof(cwd)));
+	printf("%s\n",  read_file(filename, size));
 	if (args[1] == NULL)
 	{
 		chdir(getenv("HOME"));
@@ -51,7 +52,7 @@ int hsh_cd(char **args)
 				{
 					if (create_file(filename, cwd) == 1)
 					{
-						create_file(size_name, (char *)(sizeof(cwd) + '0'));
+						size = sizeof(cwd);
 						printf("%s\n",  read_file(filename, sizeof(cwd)));
 						chdir(getenv("HOME"));
 						printf("%s\n", getenv("HOME"));
@@ -59,7 +60,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("%s\n",  read_file(size_name, 2));
+					printf("%s\n",  read_file(filename, size));
 				}
 			}		
 			else
