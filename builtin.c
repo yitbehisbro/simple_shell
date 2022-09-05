@@ -28,7 +28,7 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
+	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256], *buffer;
 
 	getcwd(cwd, sizeof(cwd));
 	if (args[1] == NULL)
@@ -58,7 +58,9 @@ int hsh_cd(char **args)
 				else
 				{
 					printf("Sorry\n");
-					printf("%s\n",  read_file(filename, 18));
+					buffer = malloc(1024);
+					buffer = read_file(filename, 18);
+					printf("%s\n", buffer);
 				}
 			}		
 			else
