@@ -28,9 +28,7 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
-	static ssize_t size;
-	ssize_t temp;
+	char *size_name = "size", *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
 
 	getcwd(cwd, sizeof(cwd));
 	printf("%s\n",  read_file(filename, sizeof(cwd)));
@@ -53,6 +51,7 @@ int hsh_cd(char **args)
 				{
 					if (create_file(filename, cwd) == 1)
 					{
+						create_file(size_name, sizeof(cwd) + '0');
 						printf("%s\n",  read_file(filename, sizeof(cwd)));
 						temp = sizeof(cwd);
 						size = temp;
@@ -62,7 +61,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("%s\n",  read_file(filename, size));
+					printf("%s\n",  read_file(size_name, 2));
 				}
 			}		
 			else
