@@ -30,7 +30,8 @@ int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "expected argument to \"cd\"\n");
+		args[1] = "$HOME";
+		/** fprintf(stderr, "expected argument to \"cd\"\n"); */
 	}
 	else
 	{
