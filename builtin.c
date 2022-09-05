@@ -60,7 +60,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					if (strcmp(getenv("OLDPWD"), getenv("HOME")) == 0)
+					if (strcmp(oldwd, getenv("HOME")) == 0)
 						printf("Nothing changed!\n");
 					else
 					{
