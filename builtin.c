@@ -32,14 +32,17 @@ int hsh_cd(char **args)
 
 	if (args[1] == NULL)
 	{
-		chdir(home[0]);
+		chdir(getenv("HOME"));
 		/** fprintf(stderr, "expected argument to \"cd\"\n"); */
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("hsh: failed");
+			if (args[1] == home[0])
+				chdir(getenv("HOME"));
+			else
+				perror("hsh: failed");
 		}
 	}
 	return (1);
