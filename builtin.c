@@ -26,6 +26,7 @@ int hsh_cd(char **args)
 	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256];
 
 	getcwd(cwd, sizeof(cwd));
+	printf("%ld", size);
 	printf("%s\n",  read_file(filename, size));
 	if (args[1] == NULL)
 	{
