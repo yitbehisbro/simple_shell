@@ -33,7 +33,7 @@ int hsh_cd(char **args)
 
 	oldwd = malloc(1024);
 	if (oldwd != NULL)
-		getcwd(oldwd, sizeof(cwd));
+		oldwd = getenv("OLDPWD");
 	printf("%s\n", oldwd);
 	getcwd(cwd, sizeof(cwd));
 
