@@ -34,3 +34,42 @@ int create_file(const char *filename, char *text_content)
 	close(file_d);
 	return (1);
 }
+
+/**
+ * read_file - reads a text file
+ * @filename: the name of file
+ * @letters: the number of letters it should read and print
+ *
+ * Return: buffer of strings
+ */
+char *read_file(const char *filename, size_t letters)
+{
+	ssize_t r_len;
+	int file_d;
+	char *buffer;
+
+	if (filename == NULL)
+	{
+		return (0);
+	}
+	file_d = open(filename, O_RDONLY);
+	if (file_d == -1)
+	{
+		return (0);
+	}
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+	{
+		close(file_d);
+		return (0);
+	}
+	r_len = read(file_d, buffer, letters);
+	close(file_d);
+
+	if (r_len == -1)
+	{
+		free(buffer);
+		return (0);
+	}
+	return (buffer);
+}
