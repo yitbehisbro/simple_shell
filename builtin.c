@@ -48,6 +48,7 @@ int hsh_cd(char **args)
 					if (create_file(filename, cwd) == 1)
 					{
 						size = sizeof(cwd);
+						printf("%s(d)\n",  read_file(filename, size));
 						printf("%s\n",  read_file(filename, sizeof(cwd)));
 						chdir(getenv("HOME"));
 						printf("%s\n", getenv("HOME"));
