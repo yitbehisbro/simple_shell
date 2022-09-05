@@ -51,10 +51,8 @@ int hsh_cd(char **args)
 				{
 					if (create_file(filename, cwd) == 1)
 					{
-						create_file(size_name, sizeof(cwd) + '0');
+						create_file(size_name, (char *)(sizeof(cwd) + '0'));
 						printf("%s\n",  read_file(filename, sizeof(cwd)));
-						temp = sizeof(cwd);
-						size = temp;
 						chdir(getenv("HOME"));
 						printf("%s\n", getenv("HOME"));
 					}
