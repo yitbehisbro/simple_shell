@@ -35,8 +35,6 @@ int hsh_cd(char **args)
 	}
 	else
 	{
-		args[1] = "$HOME";
-
 		if (chdir(args[1]) != 0)
 		{
 			perror("hsh: failed");
