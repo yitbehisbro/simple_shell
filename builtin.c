@@ -56,7 +56,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("%s\n", read_file(filename, 10));
+					printf("%s\n", read_file(filename, 0));
 				}
 			}		
 			else
