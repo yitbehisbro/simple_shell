@@ -61,7 +61,7 @@ int hsh_cd(char **args)
 				else
 				{
 					if (strcmp(oldwd, getenv("HOME")) == 0)
-						chdir(getenv("OLDPWD"));
+						chdir(getenv("OLDPWD")), printf("Here we go");
 						/** printf("Nothing changed!\n"); */
 					else
 					{
