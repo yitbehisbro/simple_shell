@@ -54,7 +54,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("%d\n", size);
+					printf("%ld\n", size);
 					printf("%s\n",  read_file(filename, size));
 				}
 			}		
