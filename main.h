@@ -17,7 +17,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-
 void hsh_loop(void);
 char **split_line(char *line);
 char *read_line(void);
@@ -41,5 +40,6 @@ int _atoi(char *s);
 int _unsetenv(char **args);
 int _setenv(char **args);
 int count_args(char **argv);
+int create_file(const char *filename, char *text_content);
 
 #endif
