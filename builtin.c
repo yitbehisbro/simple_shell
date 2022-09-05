@@ -29,7 +29,8 @@ int hsh_num_builtins(void)
 int hsh_cd(char **args)
 {
 	char *home[] = {"~", "-", NULL};
-	char cwd[256], *oldwd;
+	char cwd[256];
+	static char *oldwd;
 
 	getcwd(cwd, sizeof(cwd));
 	oldwd = malloc(1024);
@@ -56,24 +57,15 @@ int hsh_cd(char **args)
 			}
 			else if (strcmp(args[1], home[1]) == 0)
 			{
-				if (strcmp(cwd, getenv("OLDPWD")) == 0)
+				if (strcmp(cwd, getenv("HOME")) != 0)
 				{
-					//chdir(getenv("HOME"));
-					chdir(cwd);
-					//printf("%s\n", getenv("HOME"));
-					printf("%s\n", cwd);
+					chdir(getenv("HOME"));
+					printf("%s\n", getenv("HOME"));
 				}
 				else
 				{
-					if (strcmp(cwd, getenv("HOME")) == 0)
-						chdir(cwd), printf("Here we go\n");
-						/** printf("Nothing changed!\n"); */
-					else
-					{
-						chdir(getenv(oldwd));
-						printf("%s\n", getenv(oldwd));
-						free(oldwd);
-					}
+					chdir(oldwd);
+					printf("%s\n", oldwd);
 				}
 			}		
 			else
