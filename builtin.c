@@ -36,6 +36,7 @@ int hsh_cd(char **args)
 		oldwd = getenv("OLDPWD");
 	printf("%s\n", oldwd);
 	getcwd(cwd, sizeof(cwd));
+	printf("%s\n", cwd);
 
 	if (args[1] == NULL)
 	{
@@ -61,7 +62,7 @@ int hsh_cd(char **args)
 				else
 				{
 					if (strcmp(oldwd, getenv("HOME")) == 0)
-						chdir(getenv("OLDPWD")), printf("Here we go");
+						chdir(getenv("OLDPWD")), printf("Here we go\n");
 						/** printf("Nothing changed!\n"); */
 					else
 					{
