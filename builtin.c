@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * hsh_num_builtins - evaluate the size of bultins
+ * hsh_num_builtins - evaluates the size of bultins
  *
  * Return: size of the bultins
  */
