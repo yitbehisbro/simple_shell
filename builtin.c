@@ -42,13 +42,9 @@ int hsh_cd(char **args)
 			{
 				if (strcmp(cwd, getenv("HOME")) != 0)
 				{
-					if (create_file(filename, cwd) == 1)
-					{
-						setenv("OLDPWD", cwd, 1);
-						printf("%s\n",  read_file(filename, sizeof(cwd)));
-						chdir(getenv("HOME"));
-						printf("%s\n", getenv("HOME"));
-					}
+					setenv("OLDPWD", cwd, 1);
+					chdir(getenv("HOME"));
+					printf("%s\n", getenv("HOME"));
 				}
 				else
 				{
