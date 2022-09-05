@@ -1,6 +1,6 @@
 #include "main.h"
 
-extern size_t size;
+size_t size;
 /**
  * hsh_num_builtins - evaluate the size of bultins
  *
@@ -9,13 +9,7 @@ extern size_t size;
 int hsh_num_builtins(void)
 {
 	char *builtin_str1[] = {
-		"cd",
-		"help",
-		"clear",
-		"exit",
-		"env",
-		"setenv",
-		"unsetenv"
+		"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"
 		};
 
 	return (sizeof(builtin_str1) / sizeof(char *));
@@ -82,13 +76,7 @@ int hsh_help(char __attribute__((unused)) **args)
 {
 	int i;
 	char *builtin_str1[] = {
-		"cd",
-		"help",
-		"clear",
-		"exit",
-		"env",
-		"setenv",
-		"unsetenv"
+		"cd", "help", "clear", "exit", "env", "setenv", "unsetenv"
 		};
 
 	printf("Group Project for ALX Software Engineering\n");
