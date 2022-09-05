@@ -58,10 +58,7 @@ int hsh_cd(char **args)
 				}
 				else
 				{
-					printf("Sorry\n");
-					buffer = malloc(1024);
-					buffer = read_file(filename, 18);
-					printf("%s\n", buffer);
+					printf("%s\n",  read_file(filename, sizeof(cwd)));
 				}
 			}		
 			else
