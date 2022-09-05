@@ -30,11 +30,7 @@ int hsh_cd(char **args)
 {
 	if (args[1] == NULL)
 	{
-		args[1] = "$HOME";
-		if (chdir(args[1]) != 0)
-		{
-			perror("hsh: failed");
-		}
+		chdir("~");
 		/** fprintf(stderr, "expected argument to \"cd\"\n"); */
 	}
 	else
