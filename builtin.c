@@ -28,7 +28,7 @@ int hsh_num_builtins(void)
  */
 int hsh_cd(char **args)
 {
-	if (args[1] == NULL)
+	if (args[1] == "~")
 	{
 		chdir("~");
 		/** fprintf(stderr, "expected argument to \"cd\"\n"); */
