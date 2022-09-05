@@ -55,6 +55,7 @@ int hsh_cd(char **args)
 					printf("%s\n", getenv("HOME"));
 					if (oldwd != NULL)
 						oldwd = getenv("OLDPWD");
+					printf("%s\n", oldwd);
 				}
 				else
 				{
