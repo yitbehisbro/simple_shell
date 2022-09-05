@@ -31,6 +31,7 @@ int hsh_cd(char **args)
 	char *filename = "cd_helper", *home[] = {"~", "-", NULL}, cwd[256], *buffer;
 
 	getcwd(cwd, sizeof(cwd));
+	printf("%s\n",  read_file(filename, sizeof(cwd)));
 	if (args[1] == NULL)
 	{
 		chdir(getenv("HOME"));
