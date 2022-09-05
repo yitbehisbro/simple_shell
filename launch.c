@@ -59,7 +59,7 @@ int hsh_exit_status(int status)
  */
 int hsh_launch(char **args)
 {
-	extern char **environ;
+	char **environ;
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL};
