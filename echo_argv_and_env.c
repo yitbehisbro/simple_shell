@@ -48,12 +48,12 @@ int echo_argv(char **argv, int status)
 	return (1);
 }
 /**
- * exit_status - prints the exit status
+ * op_exit_status - prints the exit status
  * @status: exit status
- *
+ * @pid: process id
  * Return: exit status in success else -1
  */
-int exit_status(int status, pid_t pid)
+int op_exit_status(int status, pid_t pid)
 {
 	int exit_status;
 
