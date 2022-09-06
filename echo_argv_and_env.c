@@ -34,7 +34,10 @@ int echo_argv(char **argv)
 		}
 		else
 		{
-			perror("sh");
+			if (execvp(argv[0], argv) == -1)
+			{
+				fprintf(stderr, "%s: not found\n", argv[0]);
+			}
 			exit(EXIT_FAILURE);
 		}
 	}
