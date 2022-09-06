@@ -95,7 +95,7 @@ int hsh_launch(char **args)
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 		ex_stat = op_exit_status(status);
 		exit_char = (char)ex_stat;
-		cast_char = &exit_char;
+		cast_char = (char *)exit_char;
 		printf("cast: %s\nexit_char: %d\nex_stat: %d\n", cast_char, exit_char, ex_stat);
 	}
 	return (1);
