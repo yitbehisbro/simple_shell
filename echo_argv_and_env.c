@@ -27,8 +27,6 @@ int echo_argv(char **argv, int status)
 	}
 	if (strcmp(argv[0], ch[0]) == 0)
 	{	
-		exit_sat = WEXITSTATUS(status);
-	
 		if (strcmp(argv[1], ch[1]) == 0)
 		{
 			printf("%u\n", pid);
