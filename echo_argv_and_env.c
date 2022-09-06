@@ -3,6 +3,8 @@
 /**
  * echo_argv - prints the argument vectors
  * @argv: argument vector
+ * @child_pid: child process id
+ * @status: status of last operation
  *
  * Return: 1 in success else -1
  */
