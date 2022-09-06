@@ -91,7 +91,7 @@ int hsh_launch(char **args)
 	else
 	{
 		exit_int = WEXITSTATUS(status);
-		exit_char = exit_int + '0';
+		exit_char = (char)exit_int;
 		setenv("EXIT_STATUS", exit_char, 1);
 		do {
 			waitpid(pid, &status, WUNTRACED);
