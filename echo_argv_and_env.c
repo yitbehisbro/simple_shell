@@ -14,19 +14,10 @@ int echo_argv(char **argv, int status)
 
 	pid = getppid();
 	if (argv == NULL)
-	{
-		if (status)
-		{
-			if (strcmp(argv[1], ch[2]) == 0)
-			{
-				printf("%d\n", status);
-				exit(EXIT_SUCCESS);
-			}
-		}
 		return (-1);
-	}
+
 	if (strcmp(argv[0], ch[0]) == 0)
-	{	
+	{
 		if (strcmp(argv[1], ch[1]) == 0)
 		{
 			printf("%u\n", pid);
@@ -37,9 +28,14 @@ int echo_argv(char **argv, int status)
 			printf("%s\n", getenv("PATH"));
 			exit(EXIT_SUCCESS);
 		}
+		else if (strcmp(argv[1], ch[2]) == 0)
+		{
+			printf("%d\n", op_exit_status(status));
+			exit(EXIT_SUCCESS);
+		}
 		else
 		{
-			perror("sh:");
+			perror("sh");
 			exit(EXIT_FAILURE);
 		}
 	}
