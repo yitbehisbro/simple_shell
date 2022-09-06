@@ -93,10 +93,7 @@ int hsh_launch(char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		ex_stat = op_exit_status(status);
-		exit_char = (char)ex_stat;
-		cast_char = (char *)exit_char;
-		printf("cast: %s\nexit_char: %d\nex_stat: %d\n", cast_char, exit_char, ex_stat);
+		echo_argv(args, op_exit_status(status);
 	}
 	return (1);
 }
