@@ -62,7 +62,7 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
-	char *unsetenv_var[] = {"unsetenv", NULL}; /**argv_exit[] = {"echo", "$$", NULL}*/;
+	char *unsetenv_var[] = {"unsetenv", NULL}, str;
 
 	pid = fork();
 	if (pid == 0)
@@ -93,7 +93,8 @@ int hsh_launch(char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		echo_argv(void, op_exit_status(status));
+		sprintf(str, "%d", op_exit_status(status));
+		setenv("EXIT_STATUS", &str, 1);
 	}
 	return (1);
 }
