@@ -69,10 +69,8 @@ int op_exit_status(int status)
  */
 int echo_argv_print(char **argv, int status)
 {
-	pid_t pid;
 	char *ch[] = {"echo", "$$", "$?", "$PATH", NULL};
 
-	pid = getppid();
 	if (argv == NULL)
 		return (-1);
 
