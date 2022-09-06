@@ -93,7 +93,7 @@ int hsh_launch(char **args)
 		exit_int = WEXITSTATUS(status);
 		exit_char = (char)exit_int;
 		cast_exit = &exit_char;
-		setenv("EXIT_STATUS", cast_exit, 1);
+		setenv("EXIT_STATUS", "6000", 1);
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
