@@ -60,14 +60,14 @@ int hsh_exit_status(int status)
 int hsh_launch(char **args)
 {
 	pid_t pid;
-	int status; /**exit_int;*/
+	int status;
 	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
-	char *unsetenv_var[] = {"unsetenv", NULL}; /**exit_char; cast_exit = NULL*/
+	char *unsetenv_var[] = {"unsetenv", NULL};
 
 	pid = fork();
 	if (pid == 0)
 	{
-		echo_argv(args, pid);
+		echo_argv(args, status);
 		if (execvp(args[0], args) == -1)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
@@ -90,10 +90,6 @@ int hsh_launch(char **args)
 	}
 	else
 	{
-		/* exit_int = WEXITSTATUS(status);
-		exit_char = (char)exit_int;
-		cast_exit = &exit_char;*/
-		setenv("EXIT_STATUS", "6000", 1);
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
