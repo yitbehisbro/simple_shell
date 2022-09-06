@@ -96,7 +96,7 @@ int hsh_launch(char **args)
 		ex_stat = op_exit_status(status);
 		exit_char = (char)ex_stat;
 		cast_char = &exit_char;
-		printf("cast: %s\nexit_char: %s\nex_stat: %d\n", cast_char, exit_char, ex_stat);
+		printf("cast: %s\nexit_char: %d\nex_stat: %d\n", cast_char, exit_char, ex_stat);
 	}
 	return (1);
 }
