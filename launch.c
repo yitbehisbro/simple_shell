@@ -60,10 +60,9 @@ int hsh_exit_status(int status)
 int hsh_launch(char **args)
 {
 	pid_t pid;
-	int status, exit_s;
-	char *exit_status[] = {"exit", NULL};
-	char *setenv_var[] = {"setenv", NULL};
-	char *unsetenv_var[] = {"unsetenv", NULL};
+	int status, exit_int;
+	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
+	char *unsetenv_var[] = {"unsetenv", NULL}, exit_char;
 
 	pid = fork();
 	if (pid == 0)
@@ -91,8 +90,9 @@ int hsh_launch(char **args)
 	}
 	else
 	{
-		exit_s = WEXITSTATUS(status);
-		setenv("EXIT_STATUS", exit_s, 1);
+		exit_int = WEXITSTATUS(status);
+		exit_char = (char)exit_int;
+		setenv("EXIT_STATUS", (char *)exit_char, 1);
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
