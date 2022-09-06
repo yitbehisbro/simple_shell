@@ -67,7 +67,7 @@ int hsh_launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		echo_argv(args, status);
+		echo_argv(args, status, 0);
 		if (execvp(args[0], args) == -1)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
@@ -93,7 +93,7 @@ int hsh_launch(char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		echo_argv_print(argv_exit, op_exit_status(status));
+		echo_argv(argv_exit, op_exit_status(status), 1);
 	}
 	return (1);
 }
