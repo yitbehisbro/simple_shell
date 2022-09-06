@@ -30,7 +30,7 @@ int echo_argv(char **argv, int status)
 		}
 		else if (strcmp(argv[1], ch[2]) == 0)
 		{
-			printf("%d\n", op_exit_status(status));
+			printf("%d\n", status);
 			exit(EXIT_SUCCESS);
 		}
 		else
@@ -41,6 +41,7 @@ int echo_argv(char **argv, int status)
 	}
 	return (1);
 }
+
 /**
  * op_exit_status - prints the exit status
  * @status: exit status
