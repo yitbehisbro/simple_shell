@@ -9,13 +9,22 @@
  */
 int echo_argv(char **argv, int status)
 {
-	int exit_sat;
 	pid_t pid;
 	char *ch[] = {"echo", "$$", "$?", "$PATH", NULL};
 
 	pid = getppid();
 	if (argv == NULL)
+	{
+		if (status)
+		{
+			if (strcmp(argv[1], ch[2]) == 0)
+			{
+				printf("%d\n", status);
+				exit(EXIT_SUCCESS);
+			}
+		}
 		return (-1);
+	}
 	if (strcmp(argv[0], ch[0]) == 0)
 	{	
 		exit_sat = WEXITSTATUS(status);
@@ -23,11 +32,6 @@ int echo_argv(char **argv, int status)
 		if (strcmp(argv[1], ch[1]) == 0)
 		{
 			printf("%u\n", pid);
-			exit(EXIT_SUCCESS);
-		}
-		else if (strcmp(argv[1], ch[2]) == 0)
-		{
-			printf("%d\n", exit_sat);
 			exit(EXIT_SUCCESS);
 		}
 		else if (strcmp(argv[1], ch[3]) == 0)
