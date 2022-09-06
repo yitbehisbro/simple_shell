@@ -3,22 +3,26 @@
 /**
  * echo_argv - prints the argument vectors
  * @argv: argument vector
- * @child_pid: child process id
+ * @status: exit status
  *
  * Return: 1 in success else -1
  */
-int echo_argv(char **argv, pid_t child_pid)
+int echo_argv(char **argv, int status)
 {
+	int exit_sat;
+	pid_t pid;
 	char *ch[] = {"echo", "$$", "$?", "$PATH", NULL};
 
+	pid = getppid();
 	if (argv == NULL)
 		return (-1);
 	if (strcmp(argv[0], ch[0]) == 0)
-	{
+	{	
+		exit_sat = WEXITSTATUS(status);
 		if (strcmp(argv[1], ch[1]) == 0)
-			printf("%d\n", child_pid);
+			printf("%u\n", pid);
 		else if (strcmp(argv[1], ch[2]) == 0)
-			printf("%s\n", getenv("EXIT_STATUS"));
+			printf("%d\n", exit_sat);
 		else if (strcmp(argv[1], ch[3]) == 0)
 			printf("%s\n", getenv("PATH"));
 		else
