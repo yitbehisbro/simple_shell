@@ -31,7 +31,7 @@ int echo_argv(char **argv, int status)
 		}
 		else if (strcmp(argv[1], ch[2]) == 0)
 		{
-			printf("%d\n", getenv("EXIT_STATUS"));
+			printf("%s\n", getenv("EXIT_STATUS"));
 			exit(EXIT_SUCCESS);
 		}
 		else
