@@ -42,5 +42,6 @@ int _setenv(char **args);
 int count_args(char **argv);
 int create_file(const char *filename, char *text_content);
 char *read_file(const char *filename, size_t letters);
+int echo_argv(char **argv, pid_t child_pid);
 
 #endif
