@@ -60,7 +60,7 @@ int hsh_exit_status(int status)
 int hsh_launch(char **args)
 {
 	pid_t pid;
-	int status;
+	int status, ex_status;
 	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
 	char *unsetenv_var[] = {"unsetenv", NULL};
 
@@ -93,7 +93,8 @@ int hsh_launch(char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		exit_status(status, pid);
+		ex_status = exit_status(status, pid);
+		return (echo_argv(NULL, ex_status));
 	}
 	return (1);
 }
