@@ -3,12 +3,10 @@
 /**
  * echo_argv - prints the argument vectors
  * @argv: argument vector
- * @status: exit status
- * @flag: the flag 0
  *
  * Return: 1 in success else -1
  */
-int echo_argv(char **argv, int status)
+int echo_argv(char **argv)
 {
 	pid_t pid;
 	char *ch[] = {"echo", "$$", "$?", "$PATH", NULL};
