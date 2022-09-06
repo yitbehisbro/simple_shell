@@ -24,5 +24,5 @@ int echo_argv(char **argv, pid_t child_pid, int status)
 		else
 			perror("sh:");
 	}
-	
+	return (1);
 }
