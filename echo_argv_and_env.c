@@ -8,19 +8,11 @@
  *
  * Return: 1 in success else -1
  */
-int echo_argv(char **argv, int status, int flag)
+int echo_argv(char **argv, int status)
 {
 	pid_t pid;
 	char *ch[] = {"echo", "$$", "$?", "$PATH", NULL};
 
-	if (flag != 0)
-	{
-		if (strcmp(argv[1], ch[2]) == 0)
-		{
-			printf("%d\n", status);
-			exit(EXIT_SUCCESS);
-		}
-	}
 	pid = getppid();
 	if (argv == NULL)
 		return (-1);
@@ -37,11 +29,11 @@ int echo_argv(char **argv, int status, int flag)
 			printf("%s\n", getenv("PATH"));
 			exit(EXIT_SUCCESS);
 		}
-		/*else if (strcmp(argv[1], ch[2]) == 0)
+		else if (strcmp(argv[1], ch[2]) == 0)
 		{
 			printf("%d\n", status);
 			exit(EXIT_SUCCESS);
-		}*/
+		}
 		else
 		{
 			perror("sh");
