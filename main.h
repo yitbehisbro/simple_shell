@@ -215,7 +215,7 @@ int get_error(data_shell *datash, int eval);
 /* eof_handler.c */
 void get_sigint(int sig);
 
-/* built_help.c */
+/* env_helper.c */
 void aux_help_env(void);
 void aux_help_setenv(void);
 void aux_help_unsetenv(void);
