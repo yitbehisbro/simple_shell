@@ -195,13 +195,13 @@ int get_len(int n);
 char *aux_itoa(int n);
 int _atoi(char *s);
 
-/* aux_error1.c */
+/* cd_helper.c */
 char *strcat_cd(data_shell *, char *, char *, char *);
 char *error_get_cd(data_shell *datash);
 char *error_not_found(data_shell *datash);
 char *error_exit_shell(data_shell *datash);
 
-/* aux_error2.c */
+/* env_error.c */
 char *error_get_alias(char **args);
 char *error_env(data_shell *datash);
 char *error_syntax(char **args);
