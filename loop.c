@@ -12,7 +12,7 @@ void hsh_loop(void)
 	int status;
 
 	do {
-		printf("$ ");
+		printf("#cisfun$ ");
 		line = read_line();
 		args = split_line(line);
 		status = hsh_execute(args);
