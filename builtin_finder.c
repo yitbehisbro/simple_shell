@@ -1,5 +1,7 @@
 #include "main.h"
 
+int (*get_builtin(char *cmd))(data_shell *datash);
+
 /**
  * exec_line - finds builtins and commands
  *
