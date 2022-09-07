@@ -61,6 +61,7 @@ int hsh_launch(char **args)
 {
 	pid_t pid;
 	int status;
+	char *env_var[] = {"HOME", "USER", "LOGNAME", "PATH", "SESSION", "LANG", NULL};
 	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
 	char *unsetenv_var[] = {"unsetenv", NULL}, str[20];
 
@@ -68,7 +69,7 @@ int hsh_launch(char **args)
 	if (pid == 0)
 	{
 		echo_argv(args);
-		if (execvp(args[0], args) == -1)
+		if (execve(args[0], args, env_var) == -1)
 		{
 			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
 							     _atoi(args[1]) <= 0)) && (args[2] == NULL))
