@@ -1,11 +1,11 @@
 # 0x16. C - Simple Shell
 <h3>Compilation</h3>
 
-<p>The shell will be compiled this way:</p>
+<p>The shell should be compiled this way:</p>
 
 <pre><code>gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh && ./hsh
 </code></pre>
-<h3>Prompt</h3>
+<h3>The shell prompt like:</h3>
 <pre><code>:)</code></pre>
 <h3>Testing</h3>
 
