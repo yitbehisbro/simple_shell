@@ -1,72 +1,17 @@
 #include "main.h"
 
 /**
- * read_line - read a line
+ * read_line - reads the input string.
  *
- * Return: Null-terminated
+ * @i_eof: return value of getline function
+ * Return: input string
  */
-char *read_line(void)
+char *read_line(int *i_eof)
 {
-	char *line = NULL;
-	ssize_t bufsize = 0;
+	char *input = NULL;
+	size_t bufsize = 0;
 
-	if (_getline(&line, &bufsize, stdin) == -1)
-	{
-		if (feof(stdin))
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			perror("getline\n");
-			exit(EXIT_FAILURE);
-		}
-	}
-	return (line);
-	return (read_loop());
-}
+	*i_eof = getline(&input, &bufsize, stdin);
 
-/**
- * read_loop - reads the line
- *
- * Return: buffer
- */
-char *read_loop(void)
-{
-	int c, position = 0, bufsize = BUFSIZE;
-	char *buffer = malloc(sizeof(char) * bufsize);
-
-	if (!buffer)
-	{
-		fprintf(stderr, "allocation error\n");
-		exit(EXIT_FAILURE);
-	}
-	while (1)
-	{
-		c = getchar();
-		if (c == EOF)
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else if (c == '\n')
-		{
-			buffer[position] = '\0';
-			return (buffer);
-		}
-		else
-		{
-			buffer[position] = c;
-		}
-		position++;
-		if (position >= bufsize)
-		{
-			bufsize += BUFSIZE;
-			buffer = realloc(buffer, bufsize);
-			if (!buffer)
-			{
-				fprintf(stderr, "allocation error\n");
-				exit(EXIT_FAILURE);
-			}
-		}
-	}
+	return (input);
 }
