@@ -1,121 +1,129 @@
 #include "main.h"
 
 /**
- * red - set colors to red
+ * copy_info - copies info to create
+ * a new env or alias
+ * @name: name (env or alias)
+ * @value: value (env or alias)
  *
+ * Return: new env or alias.
+ */
+char *copy_info(char *name, char *value)
+{
+	char *new;
+	int len_name, len_value, len;
+
+	len_name = _strlen(name);
+	len_value = _strlen(value);
+	len = len_name + len_value + 2;
+	new = malloc(sizeof(char) * (len));
+	_strcpy(new, name);
+	_strcat(new, "=");
+	_strcat(new, value);
+	_strcat(new, "\0");
+
+	return (new);
+}
+
+/**
+ * set_env - sets an environment variable
+ *
+ * @name: name of the environment variable
+ * @value: value of the environment variable
+ * @datash: data structure (environ)
  * Return: no return
  */
-void red(void)
+void set_env(char *name, char *value, data_shell *datash)
 {
-	fprintf(stderr, "\033[1;31m");
-}
+	int i;
+	char *var_env, *name_env;
 
-/**
- * reset - set colors to orginal
- *
- * Return: no return
- */
-void reset(void)
-{
-	fprintf(stderr, "\033[0m");
-}
-
-/**
- * count_args - counts the parameter passed
- * @argv: argument vector
- *
- * Return: number of word else 1
- */
-int count_args(char **argv)
-{
-	int i = 0;
-
-	if (argv == NULL)
+	for (i = 0; datash->_environ[i]; i++)
 	{
-		return (1);
-	}
-	while (argv[i] != NULL)
-	{
-		i++;
-	}
-	/** printf("Counter: %d\nIteration: %d\n", counter, i);*/
-	return (i);
-}
-/**
- * _setenv - set envirnomental variable
- * @args: arguments vector
- *
- * Return: -1 in error and 1 to enable prompt
- */
-int _setenv(char **args)
-{
-	int argc = count_args(args);
-
-	if (args == NULL)
-	{
-		return (1);
-	}
-	if (argc == 1)
-	{
-		fprintf(stderr, "hsh: Very few argument for: %s.\n", args[0]);
-		fprintf(stderr, "Try 'man setenv' for more information.\n");
-	}
-	if (argc == 2)
-	{
-		fprintf(stderr, "hsh: Very few argument for: %s.\n", args[0]);
-		fprintf(stderr, "Try 'man setenv' for more information.\n");
-	}
-	if (argc > 3)
-	{
-		fprintf(stderr, "hsh: Too much argument for: %s.\n", args[0]);
-		fprintf(stderr, "Try 'man setenv' for more information.\n");
-	}
-	if (argc == 3)
-	{
-		if (setenv(args[1], args[2], 1) == -1)
+		var_env = _strdup(datash->_environ[i]);
+		name_env = _strtok(var_env, "=");
+		if (_strcmp(name_env, name) == 0)
 		{
-			red();
-			fprintf(stderr, "error: ");
-			reset();
-			fprintf(stderr, "Failed to set the variable\n");
+			free(datash->_environ[i]);
+			datash->_environ[i] = copy_info(name_env, value);
+			free(var_env);
+			return;
 		}
+		free(var_env);
 	}
+
+	datash->_environ = _reallocdp(datash->_environ, i, sizeof(char *) * (i + 2));
+	datash->_environ[i] = copy_info(name, value);
+	datash->_environ[i + 1] = NULL;
+}
+
+/**
+ * _setenv - compares env variables names
+ * with the name passed.
+ * @datash: data relevant (env name and env value)
+ *
+ * Return: 1 on success.
+ */
+int _setenv(data_shell *datash)
+{
+
+	if (datash->args[1] == NULL || datash->args[2] == NULL)
+	{
+		get_error(datash, -1);
+		return (1);
+	}
+
+	set_env(datash->args[1], datash->args[2], datash);
+
 	return (1);
 }
 
 /**
- * _unsetenv - set envirnomental variable
- * @args: arguments vector
+ * _unsetenv - deletes a environment variable
  *
- * Return: -1 in error, 0 for success and 1 to enable prompt
+ * @datash: data relevant (env name)
+ *
+ * Return: 1 on success.
  */
-int _unsetenv(char **args)
+int _unsetenv(data_shell *datash)
 {
-	int argc = count_args(args);
+	char **realloc_environ;
+	char *var_env, *name_env;
+	int i, j, k;
 
-	if (args == NULL)
+	if (datash->args[1] == NULL)
 	{
+		get_error(datash, -1);
 		return (1);
 	}
-	if (argc == 1)
+	k = -1;
+	for (i = 0; datash->_environ[i]; i++)
 	{
-		fprintf(stderr, "hsh: Very few argument for: %s.\n", args[0]);
-		fprintf(stderr, "Try 'man unsetenv' for more information.\n");
-	}
-	if (argc > 2)
-	{
-		fprintf(stderr, "hsh: Too much argument for: %s.\n", args[0]);
-		fprintf(stderr, "Try 'man unsetenv' for more information.\n");
-	}
-	if (argc == 2)
-	{
-		if (unsetenv(args[1]) == -1)
+		var_env = _strdup(datash->_environ[i]);
+		name_env = _strtok(var_env, "=");
+		if (_strcmp(name_env, datash->args[1]) == 0)
 		{
-			red();
-			fprintf(stderr, "error: ");
-			reset();
-			fprintf(stderr, "Failed to unset the variable\n");
+			k = i;
+		}
+		free(var_env);
+	}
+	if (k == -1)
+	{
+		get_error(datash, -1);
+		return (1);
+	}
+	realloc_environ = malloc(sizeof(char *) * (i));
+	for (i = j = 0; datash->_environ[i]; i++)
+	{
+		if (i != k)
+		{
+			realloc_environ[j] = datash->_environ[i];
+			j++;
 		}
 	}
+	realloc_environ[j] = NULL;
+	free(datash->_environ[k]);
+	free(datash->_environ);
+	datash->_environ = realloc_environ;
 	return (1);
 }
