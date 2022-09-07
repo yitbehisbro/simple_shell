@@ -62,16 +62,16 @@ int hsh_launch(char **args)
 	pid_t pid;
 	int status;
 	char *env_var[] = {"HOME", "USER", "LOGNAME", "PATH", "SESSION", "LANG", NULL};
-	char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
-	char *unsetenv_var[] = {"unsetenv", NULL}, str[20];
+	/* char *exit_status[] = {"exit", NULL}, *setenv_var[] = {"setenv", NULL};
+	char *unsetenv_var[] = {"unsetenv", NULL}, str[20]; */
 
 	pid = fork();
 	if (pid == 0)
 	{
-		echo_argv(args);
+		/** echo_argv(args); */
 		if (execve(args[0], args, env_var) == -1)
 		{
-			if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
+			/*if (((args[0] == exit_status[0]) && (_atoi(args[1]) >= 0 ||
 							     _atoi(args[1]) <= 0)) && (args[2] == NULL))
 				hsh_exit_status(_atoi(args[1]));
 			else if ((args[0] == exit_status[0]) && (args[1] == NULL))
@@ -80,8 +80,8 @@ int hsh_launch(char **args)
 				_setenv(args);
 			else if (args[0] == unsetenv_var[0] && args[1] != NULL && args[2] == NULL)
 				_unsetenv(args);
-			else
-				perror("./shell");
+			else */
+			perror("./shell");
 		}
 		exit(EXIT_FAILURE);
 	}
@@ -94,8 +94,8 @@ int hsh_launch(char **args)
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		sprintf(str, "%d", op_exit_status(status));
-		setenv("EXIT_STATUS", str, 1);
+		/* sprintf(str, "%d", op_exit_status(status));
+		setenv("EXIT_STATUS", str, 1); */
 	}
 	return (1);
 }
