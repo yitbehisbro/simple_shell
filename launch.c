@@ -87,7 +87,7 @@ int hsh_launch(char **args)
 	}
 	else if (pid < 0)
 	{
-		fprintf(stderr, "not found\n");
+		perror("./shell");
 	}
 	else
 	{
