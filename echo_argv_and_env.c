@@ -36,7 +36,7 @@ int echo_argv(char **argv)
 			}
 			else
 			{
-				printf("0");
+				printf("0\n");
 				exit(EXIT_SUCCESS);
 			}
 		}
