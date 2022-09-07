@@ -3,9 +3,10 @@
 
 <p>The shell will be compiled this way:</p>
 
-<pre><code>gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+<pre><code>gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh && ./hsh
 </code></pre>
-
+<h3>Prompt</h3>
+<pre><code>:)</code></pre>
 <h3>Testing</h3>
 
 <p>The shell works like this in interactive mode:</p>
@@ -21,7 +22,7 @@ hsh main.c shell.c
 
 <p>Also in non-interactive mode:</p>
 
-<pre><code>$ echo "/bin/ls" | ./hsh
+<pre><code>:) echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
 :)
 :) cat test_ls_2
@@ -71,8 +72,78 @@ yitbe@ubuntu:~/simple_shell$
 </code></pre>
 <h3><code>exit EXIT_STATUS</code></h3>
 <pre><code>yitbe@ubuntu:~/simple_shell$ ./hsh
-:) exit 98
-julien@ubuntu:~/shell$ echo $?
-98
+:) exit 14
+yitbe@ubuntu:~/simple_shell$ echo $?
+14
 yitbe@ubuntu:~/simple_shell$ 
+</code></pre>
+<h3><code>cd</code></h3>
+<pre><code>yitbe@ubuntu:~/simple_shell$ ./hsh
+:) cd -
+/yitbe
+:) cd -
+/yitbe/simple_shell
+:) cd
+:) pwd
+/yitbe
+:) exit
+yitbe@ubuntu:~/simple_shell$
+</code></pre>
+<h3><code>;</code> Separator</h3>
+<pre><code>:) ls /var ; ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /hbtn ; ls /var
+ls: cannot access /hbtn: No such file or directory
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /var ; ls /hbtn
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+ls: cannot access /hbtn: No such file or directory
+:) ls /var ; ls /hbtn ; ls /var ; ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+ls: cannot access /hbtn: No such file or directory
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:)
+</code></pre>
+<h3><code>&&</code> and <code>||</code></h3>
+<pre><code>:) ls /var &amp;&amp; ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /hbtn &amp;&amp; ls /var
+ls: cannot access /hbtn: No such file or directory
+:) ls /var &amp;&amp; ls /var &amp;&amp; ls /var &amp;&amp; ls /hbtn
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+ls: cannot access /hbtn: No such file or directory
+:) ls /var &amp;&amp; ls /var &amp;&amp; ls /var &amp;&amp; ls /hbtn &amp;&amp; ls /hbtn
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+ls: cannot access /hbtn: No such file or directory
+:)
+:) ls /var || ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /hbtn || ls /var
+ls: cannot access /hbtn: No such file or directory
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /hbtn || ls /hbtn || ls /hbtn || ls /var
+ls: cannot access /hbtn: No such file or directory
+ls: cannot access /hbtn: No such file or directory
+ls: cannot access /hbtn: No such file or directory
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:) ls /hbtn || ls /hbtn || ls /hbtn || ls /var || ls /var
+ls: cannot access /hbtn: No such file or directory
+ls: cannot access /hbtn: No such file or directory
+ls: cannot access /hbtn: No such file or directory
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  spool  tmp
+:)
+</code></pre>
+<h3><code>#</code> Comment handling</h3>
+<pre><code>yitbe@ubuntu:~/simple_shell$ ./hsh
+:) echo $$ # ls -la
+5114
+:) exit
+yitbe@ubuntu:~/simple_shell$
 </code></pre>
