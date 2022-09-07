@@ -81,7 +81,7 @@ int hsh_launch(char **args)
 			else if (args[0] == unsetenv_var[0] && args[1] != NULL && args[2] == NULL)
 				_unsetenv(args);
 			else
-				fprintf(stderr, "%s: not found\n", args[0]);
+				perror("./shell");
 		}
 		exit(EXIT_FAILURE);
 	}
