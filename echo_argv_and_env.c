@@ -29,8 +29,16 @@ int echo_argv(char **argv)
 		}
 		else if (strcmp(argv[1], ch[2]) == 0)
 		{
-			printf("%s\n", getenv("EXIT_STATUS"));
-			exit(EXIT_SUCCESS);
+			if (getenv("EXIT_STATUS"))
+			{
+				printf("%s\n", getenv("EXIT_STATUS"));
+				exit(EXIT_SUCCESS);
+			}
+			else
+			{
+				printf("0");
+				exit(EXIT_SUCCESS);
+			}
 		}
 		else
 		{
