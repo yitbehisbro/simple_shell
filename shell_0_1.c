@@ -43,7 +43,7 @@ void shell_loop(void)
 		printf("#cisfun$ ");
 		line = read_shell_line();
 		args = split_line(line);
-		status = hsh_execute(args);
+		status = shell_execute(args);
 
 		free(line);
 		free(args);
