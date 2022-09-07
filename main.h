@@ -1,6 +1,10 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+#define BUFSIZE 1024
+#define TOK_BUFSIZE 128
+#define TOK_DELIM " \t\r\n\a"
+
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -11,10 +15,6 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <limits.h>
-
-#define BUFSIZE 1024
-#define TOK_BUFSIZE 128
-#define TOK_DELIM " \t\r\n\a"
 
 /* The "environment" variables */
 extern char **environ;
@@ -222,7 +222,7 @@ void aux_help_unsetenv(void);
 void aux_help_general(void);
 void aux_help_exit(void);
 
-/* aux_help2.c */
+/* built_help.c */
 void aux_help(void);
 void aux_help_alias(void);
 void aux_help_cd(void);
